@@ -20,12 +20,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="search.php">
                         <img class="icon" src="Icons/loupe.png">
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="insert_painting.php">
                         <img class="icon" src="Icons/add.png">
                     </a>
                 </li>

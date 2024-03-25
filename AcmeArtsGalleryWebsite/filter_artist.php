@@ -50,24 +50,24 @@
                         $stmt->bindParam(":artistId", $artistId, PDO::PARAM_INT);
                         $stmt->execute();
                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                        foreach ($result as $row) {
-                            echo "<tr>" . 
-                            "<td>" . "<a href='view_painting.php?id=".$row['paintingId']."'><img src='Icons/view.png' width='25px'></a>" . "</td>" .
-                            "<td>" . "<a href='edit.php?id=".$row['paintingId']."'><img src='Icons/edit.png' width='20'></a>" . "</td>" .
-                            "<td>" . "<a href='delete.php?id=".$row['paintingId']."'><img src='Icons/delete.png' width='20px'></a>" . "</td>" .
-                            "<td>" . "<img src='data:image/png;base64,".base64_encode($row['paintingThumbnail'])."'width='100px'/>" . "</td>" .
-                            "<td>" . $row["paintingTitle"] . "</td>" .
-                            "<td>" . $row["paintingYear"] . "</td>" .
-                            "<td>" . $row["mediumName"] . "</td>" .
-                            "<td>" . $row["styleName"] . "</td>" .
-                            "</tr>";
-                        }
                     }
                     catch (PDOException $e) {
                         echo "ERROR: " . $e->getMessage();
                     }
                     ?>
+
+                    <?php foreach ($result as $row): ?>
+                        <tr>
+                            <td><a href="view_painting.php?id=<?=$row['paintingId']?>"><img class="icon" src="Icons/view.png"></a></td>
+                            <td><a href="edit_painting.php?id=<?=$row['paintingId']?>"><img class="icon-small" src="Icons/edit.png"></a></td>
+                            <td><a href="delete_painting.php?id=<?=$row['paintingId']?>"><img class="icon-small" src="Icons/delete.png"></a></td>
+                            <td><img src="data:image/png;base64, <?=base64_encode($row['paintingThumbnail'])?>"/></td>
+                            <td><?=$row['paintingTitle']?></td>
+                            <td><?=$row['paintingYear']?></td>
+                            <td><?=$row['mediumName']?></td>
+                            <td><?=$row['styleName']?></td>
+                        </tr>
+                    <?php endforeach ?>
                 </tbody>
             </table>
         </div>
