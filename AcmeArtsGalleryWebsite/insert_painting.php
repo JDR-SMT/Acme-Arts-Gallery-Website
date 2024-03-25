@@ -14,7 +14,7 @@
             <div class="title-container title">ADD A NEW PAINTING</div>
 
             <div class="container col-6">
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     <div class="input-group">
                         <label class="form-label" for="input-title">TITLE</label>
                         <input class="form-control" type="text" id="input-title" name="title" required>
@@ -113,9 +113,7 @@
 
             <?php 
             if($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if(isset($_POST['title'])) {
-                    require_once('insert.php');
-                }
+                require_once('insert.php');
             }
             ?>
         </div>

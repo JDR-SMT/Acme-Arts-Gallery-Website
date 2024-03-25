@@ -3,8 +3,8 @@ require_once('config.php');
 
 $paintingTitle = $_POST["title"];
 $paintingYear = $_POST["year"];
-$paintingThumbnail = $_POST["thumbnail"];
-$paintingImage = $_POST["image"];
+$paintingThumbnail = fopen($_FILES["thumbnail"]["tmp_name"], "rb");
+$paintingImage = fopen($_FILES["image"]["tmp_name"], "rb");
 $artistId = $_POST["artist"];
 $mediumId = $_POST["medium"];
 $styleId = $_POST["style"];
