@@ -22,8 +22,6 @@ try {
     $stmt->bindParam(":mediumId", $mediumId, PDO::PARAM_STR);
     $stmt->bindParam(":styleId", $styleId, PDO::PARAM_STR);
     $stmt->execute();
-}
-catch (PDOException $e) {
+} catch (PDOException $e) {
     echo "ERROR: " . $e->getMessage();
 }
-?>

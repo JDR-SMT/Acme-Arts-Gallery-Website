@@ -55,9 +55,9 @@
 
                     <?php foreach ($result as $row): ?>
                         <tr>
-                            <td><a href="view_painting.php?id=<?=$row['paintingId']?>"><img class="icon" src="Icons/view.png"></a></td>
-                            <td><a href="edit_painting.php?id=<?=$row['paintingId']?>"><img class="icon-small" src="Icons/edit.png"></a></td>
-                            <td><a href="delete_painting.php?id=<?=$row['paintingId']?>"><img class="icon-small" src="Icons/delete.png"></a></td>
+                            <td><a id="view-button" class="btn" href="view_painting.php?id=<?=$row['paintingId']?>"><img class="icon" src="Icons/view.png"></a></td>
+                            <td><a id="edit-button" class="btn" href="edit_painting.php?id=<?=$row['paintingId']?>"><img class="icon-small" src="Icons/edit.png"></a></td>
+                            <td><a id="delete-button" class="btn" href="delete_painting.php?id=<?=$row['paintingId']?>" onclick="return confirm('Delete this painting?')"><img class="icon-small" src="Icons/delete.png"></a></td>
                             <td><img src="data:image/png;base64, <?=base64_encode($row['paintingThumbnail'])?>"/></td>
                             <td><?=$row['paintingTitle']?></td>
                             <td><?=$row['paintingYear']?></td>

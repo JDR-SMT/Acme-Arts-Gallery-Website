@@ -22,7 +22,7 @@
     }
     ?>
 
-    <?php echo "<img src='data:image/png;base64,".base64_encode($result['paintingImage'])."' style='max-height:400px'/>"; ?>
+    <img id="image" src="data:image/png;base64,<?=base64_encode($result['paintingImage'])?>" style="max-height:400px"/>
 
     <div id="table-container">
         <table class="table table-borderless">
@@ -40,10 +40,10 @@
 
         <div id="button-container">
             <div class="button-edit">
-                <?php echo "<a href='edit.php?id=".$result['paintingId']."'><img src='Icons/edit.png' width='20'></a>" ?>
+                <a href="edit_painting.php?id=<?=$result['paintingId']?>"><img class="icon-small" src="Icons/edit.png"></a>
             </div>
             <div class="button-delete">
-                <?php echo "<a href='delete.php?id=".$result['paintingId']."'><img src='Icons/delete.png' width='20px'></a>" ?>
+                <a href="delete_painting.php?id=<?=$result['paintingId']?>" onclick="return confirm('Delete this painting?')"><img class="icon-small" src="Icons/delete.png"></a>
             </div>
         </div>
     </div>

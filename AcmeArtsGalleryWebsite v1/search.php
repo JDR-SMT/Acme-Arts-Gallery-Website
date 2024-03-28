@@ -13,11 +13,11 @@
         <div class="container">
             <div class="title-container title">SEARCH BY PAINTING TITLE</div>
 
-            <div id="search-container" class="container col-6">
+            <div id="search-container" style="max-width: 500px;">
                 <form action="" method="post">
                     <div class="input-group">
                         <input class="form-control" type="text" name="title">
-                        <button class="btn" type="submit"><img class="icon-small" src="Icons/search.png"></button>
+                        <button id="search-button" class="btn" type="submit"><img class="icon-small" src="Icons/search.png"></button>
                     </div>
                 </form>
             </div>

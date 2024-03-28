@@ -1,0 +1,266 @@
+/* Font */
+@font-face {
+    font-family: 'Cheque';
+    src: url('Fonts/Cheque-Regular.eot');
+    src: url('Fonts/Cheque-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Fonts/Cheque-Regular.woff2') format('woff2'),
+        url('Fonts/Cheque-Regular.woff') format('woff'),
+        url('Fonts/Cheque-Regular.ttf') format('truetype'),
+        url('Fonts/Cheque-Regular.svg#Cheque') format('svg');
+}
+
+/* Title */
+.title-container {
+    height: 80px;
+    max-width: 500px;
+    margin: 30px auto 30px auto;
+    align-content: center;
+    border-bottom: 2px solid #DC8B9F;
+}
+
+.title {
+    font-family: 'Cheque';
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Icon */
+.icon {
+    height: 25px;
+    width: 25px;
+}
+
+.icon-small {
+    height: 20px;
+    width: 20px;
+}
+
+/* Link */
+a:hover {
+    background-color: #DC8B9F;
+    border-radius: 30px;
+}
+
+/* Button */
+.btn {
+    padding-right: 20px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid #DC8B9F;
+    border-radius: 0px;
+}
+
+.button-text {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: #DC8B9F;
+    border: 2px solid #DC8B9F;
+    border-radius: 0px;
+}
+
+/* Nav */
+.navbar {
+    border-bottom: 2px solid #DC8B9F;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+}
+
+.navbar-nav {
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.navbar-toggler {
+    border: 2px solid #DC8B9F;
+}
+
+.navbar-toggler:hover {
+    background-color: #DC8B9F;
+}
+
+.navbar-toggler:active {
+    border: none;
+}
+
+/* Home */
+#intro-text {
+    max-width: 580px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+#welcome-container {
+    background-color: white;
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #DC8B9F;
+}
+
+/* Paintings */
+#paintings-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#paintings-title {
+    grid-column-start: 2;
+}
+
+#filter-container {
+    margin-left: auto;
+}
+
+#filter-button {
+    height: 45px;
+    width: 45px;
+    justify-content: center;
+    border: none;
+}
+
+/* Table */
+td {
+    vertical-align: middle;
+    text-transform: uppercase;
+}
+
+/* Offcanvas */
+.offcanvas {
+    width: 350px !important;
+}
+
+.offcanvas-header {
+    display: grid;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+
+.offcanvas-title {
+    margin-right: auto;
+}
+
+#clear-all-link {
+    margin-right: 20px;
+    margin-left: auto;
+    color: black;
+    opacity: 0.75;
+}
+
+#clear-all-link:hover {
+    background: none;
+    opacity: 1;
+}
+
+.btn-close {
+    margin-left: auto;
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#apply-button {
+    width: 135px;
+    margin: auto 0px 0px auto;
+}
+
+/* Accordion */
+.accordion-button,
+.accordion-body {
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.list-group {
+    margin-top: 10px;
+}
+
+.list-group-item {
+    padding: 0px;
+    border-bottom: none;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.list-group-item-action:hover {
+    opacity: 1;
+    background-color: white;
+}
+
+.list-group-item-action:focus {
+    font-weight: 600;
+    color: #DC8B9F;
+    background-color: white;
+}
+
+/* View */
+#view-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#table-container {
+    padding-left: 40px;
+    align-self: center;
+}
+
+#table-container th {
+    text-align: right;
+}
+
+#button-container {
+    display: flex;
+    justify-content: end;
+}
+
+.button-edit {
+    margin-right: 10px;
+}
+
+/* Search */
+#search-container {
+    margin: auto auto 30px auto;
+}
+
+/* Form */
+.input-group {
+    margin: 0px auto 15px auto;
+}
+
+.form-label {
+    width: 100px;
+    padding-right: 10px;
+    align-content: center;
+    text-align: right;
+    font-weight: 600;
+}
+
+input,
+select {
+    text-transform: uppercase;
+}
