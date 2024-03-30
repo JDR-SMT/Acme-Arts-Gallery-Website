@@ -6,30 +6,19 @@ function populateGallery() {
         dataType: "json",
         data: { action: "gallery" },
         
-        success: function() {
-
+        success: function(gallery) {
+            if (gallery) {
+                console.log(gallery);
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
         }
     });
 }
 
 $(document).ready(function () {
-    // populate details
-    $(document).on("click", "#details", function() {
-        let paintingId = $(this).data("id");
-        
-        $.ajax({
-            url: "ajax.php",
-            type: "GET",
-            dataType: "json",
-            data: { id: paintingId, action: "details" },
-            
-            success: function(painting) {
-                if (painting) {
-
-                    const details =
-                        '';
-                }
-            }
-        });
-    });
+    // populate gallery
+    populateGallery();
 });

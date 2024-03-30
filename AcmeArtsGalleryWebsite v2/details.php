@@ -24,23 +24,23 @@
                     <tbody>
                         <tr>
                             <th>TITLE</th>
-                            <td></td>
+                            <td id="data-column-title"></td>
                         </tr>
                         <tr>
                             <th>YEAR</th>
-                            <td></td>
+                            <td id="data-column-year"></td>
                         </tr>
                         <tr>
                             <th>ARTIST</th>
-                            <td></td>
+                            <td id="data-column-artist"></td>
                         </tr>
                         <tr>
                             <th>MEDIUM</th>
-                            <td></td>
+                            <td id="data-column-medium"></td>
                         </tr>
                         <tr>
                             <th>STYLE</th>
-                            <td></td>
+                            <td id="data-column-style"></td>
                         </tr>
                     </tbody>
                 </table>

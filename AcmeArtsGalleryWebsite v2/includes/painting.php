@@ -1,5 +1,5 @@
 <?php
-include 'includes/config.php';
+include 'config.php';
 
 class painting extends config
 {
@@ -56,10 +56,10 @@ class painting extends config
     public function add($data)
     {
         if (!empty($data)) {
-            // creates two arrays
+            // create two arrays
             $fields = $placeholders = [];
 
-            // sets field array with column names, sets placeholder array with column values
+            // set field array with column names, set placeholder array with column values
             foreach ($data as $field => $value) {
                 $fields[] = $field;
                 $placeholders[] = ":{$field}";
@@ -87,7 +87,7 @@ class painting extends config
             $i = 1;
             $count = count($data);
 
-            // sets field array with column names, sets placeholder array with column values
+            // set field array with column names, set placeholder array with column values
             foreach ($data as $field => $value) {
                 $fields .= "{$field} = :{$field}";
 

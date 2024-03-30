@@ -38,12 +38,24 @@
                 </tr>
             </thead>
             <tbody>
-
+                <tr>
+                    <td id="data-column-details"></td>
+                    <td id="data-column-update"></td>
+                    <td id="data-column-delete"></td>
+                    <td id="data-column-thumbnail"></td>
+                    <td id="data-column-title"></td>
+                    <td id="data-column-year"></td>
+                    <td id="data-column-artist"></td>
+                    <td id="data-column-medium"></td>
+                    <td id="data-column-style"></td>
+                </tr>
             </tbody>
         </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
