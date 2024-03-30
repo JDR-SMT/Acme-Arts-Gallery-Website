@@ -38,17 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td id="data-column-details"></td>
-                    <td id="data-column-update"></td>
-                    <td id="data-column-delete"></td>
-                    <td id="data-column-thumbnail"></td>
-                    <td id="data-column-title"></td>
-                    <td id="data-column-year"></td>
-                    <td id="data-column-artist"></td>
-                    <td id="data-column-medium"></td>
-                    <td id="data-column-style"></td>
-                </tr>
+
             </tbody>
         </table>
     </div>

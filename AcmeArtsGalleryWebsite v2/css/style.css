@@ -35,8 +35,8 @@
   width: 20px;
 }
 
-#view-button,
-#edit-button,
+#details-button,
+#update-button,
 #delete-button,
 #search-button {
   height: 40px;

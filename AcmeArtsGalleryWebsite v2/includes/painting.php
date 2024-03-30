@@ -3,22 +3,15 @@ include 'config.php';
 
 class painting extends config
 {
-    protected $paintings = "paintings";
-    protected $artists = "artists";
-    protected $mediums = "mediums";
-    protected $styles = "styles";
-    protected $artistId = "artistId";
-    protected $mediumId = "mediumId";
-    protected $styleId = "styleId";
-
     // fetch all paintings
     public function gallery()
     {
         // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId
-        $sql = "SELECT * FROM {$this->paintings}
-                INNER JOIN {$this->artists} ON {$this->paintings}.{$this->artistId} = {$this->artists}.{$this->artistId}
-                INNER JOIN {$this->mediums} ON {$this->paintings}.{$this->mediumId} = {$this->mediums}.{$this->mediumId}
-                INNER JOIN {$this->styles} ON {$this->paintings}.{$this->styleId} = {$this->styles}.{$this->styleId}";
+        $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
+                FROM paintings p
+                INNER JOIN artists a ON p.artistId = a.artistId
+                INNER JOIN mediums m ON p.mediumId = m.mediumId
+                INNER JOIN styles s ON p.styleId = s.styleId";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -35,11 +28,12 @@ class painting extends config
     public function details($id)
     {
         // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId where $field = :field
-        $sql = "SELECT * FROM {$this->paintings}
-                INNER JOIN {$this->artists} ON {$this->paintings}.{$this->artistId} = {$this->artists}.{$this->artistId}
-                INNER JOIN {$this->mediums} ON {$this->paintings}.{$this->mediumId} = {$this->mediums}.{$this->mediumId}
-                INNER JOIN {$this->styles} ON {$this->paintings}.{$this->styleId} = {$this->styles}.{$this->styleId}
-                WHERE {$id} = :{$id}";
+        $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
+                FROM paintings p
+                INNER JOIN artists a ON p.artistId = a.artistId
+                INNER JOIN mediums m ON p.mediumId = m.mediumId
+                INNER JOIN styles s ON p.styleId = s.styleId
+                WHERE p.{$id} = :{$id}";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -67,7 +61,7 @@ class painting extends config
         }
 
         // insert paintings with passed column names and column values
-        $sql = "INSERT {$this->paintings} ({implode(',', $fields)}) 
+        $sql = "INSERT paintings ({implode(',', $fields)}) 
                 VALUES ({implode(',', $placeholders)})";
 
         try {
@@ -100,7 +94,7 @@ class painting extends config
         }
 
         // update paintings with passed column names and column values by painting id
-        $sql = "UPDATE {$this->paintings}
+        $sql = "UPDATE paintings
                 SET {$fields}
                 WHERE {$id} = :{$id}";
 
@@ -116,7 +110,7 @@ class painting extends config
     // delete an existing painting by painting id
     public function delete($id)
     {
-        $sql = "DELETE FROM {$this->paintings}
+        $sql = "DELETE FROM paintings
                 WHERE {$id} = :{$id}";
 
         try {
@@ -131,11 +125,12 @@ class painting extends config
     public function search($title)
     {
         // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId where $title = :title
-        $sql = "SELECT * FROM {$this->paintings}
-                INNER JOIN {$this->artists} ON {$this->paintings}.{$this->artistId} = {$this->artists}.{$this->artistId}
-                INNER JOIN {$this->mediums} ON {$this->paintings}.{$this->mediumId} = {$this->mediums}.{$this->mediumId}
-                INNER JOIN {$this->styles} ON {$this->paintings}.{$this->styleId} = {$this->styles}.{$this->styleId}
-                WHERE {$title} = :{$title}";
+        $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
+                FROM paintings p
+                INNER JOIN artists a ON p.artistId = a.artistId
+                INNER JOIN mediums m ON p.mediumId = m.mediumId
+                INNER JOIN styles s ON p.styleId = s.styleId
+                WHERE p.{$title} = :{$title}";
 
         try {
             $stmt = $this->conn->prepare($sql);

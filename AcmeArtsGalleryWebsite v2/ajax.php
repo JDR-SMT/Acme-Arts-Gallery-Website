@@ -10,6 +10,14 @@ if (!empty($action)) {
 // gallery action
 if ($action == "gallery") {
     $gallery = $obj->gallery();
+
+    // thumbnail must be base64_encoded before json_encoded
+    foreach ($gallery as $field => $value) {
+        if ($gallery[$field]['paintingThumbnail']) {
+            $gallery[$field]['paintingThumbnail'] = base64_encode($gallery[$field]['paintingThumbnail']);
+        }
+    }
+
     echo json_encode($gallery);
     exit();
 }
@@ -20,6 +28,14 @@ if ($action == "details") {
 
     if (!empty($paintingId)) {
         $painting = $obj->details("paintingId", $paintingId);
+
+        // image must be base64_encoded before json_encoded
+        foreach ($gallery as $field => $value) {
+            if ($gallery[$field]['paintingImage']) {
+                $gallery[$field]['paintingImage'] = base64_encode($gallery[$field]['paintingImage']);
+            }
+        }
+
         echo json_encode($painting);
         exit();
     }
