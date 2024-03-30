@@ -1,9 +1,9 @@
 <?php
-$action = $_REQUEST["action"]; // name="action"
+$action = $_REQUEST["action"];
 
-// empty action create painting class object
+// create painting class object
 if (!empty($action)) {
-    include 'painting.php';
+    include 'includes/painting.php';
     $obj = new painting();
 }
 
