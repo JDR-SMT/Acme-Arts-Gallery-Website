@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Acme Arts Gallery</title>
+    <title>Acme Arts</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -14,60 +14,59 @@
     <div class="container-lg">
         <div class="title-container title">UPDATE PAINTING</div>
 
-        <div>
+        <div id="update-container">
             <div>
-                <div>
+                <div id="image">
 
                 </div>
-                <div>
+                <div id="thumbnail">
 
                 </div>
             </div>
 
-            <div class="container" style="max-width:500px">
-                <form action="" method="post" enctype="multipart/form-data">
+            <div id="form-container" class="container" style="max-width:500px">
+                <form id="form-update" method="POST" enctype="multipart/form-data">
                     <div class="input-group">
                         <label class="form-label" for="input-title">TITLE</label>
-                        <input class="form-control" type="text" id="input-title" name="title" value="">
+                        <input class="form-control form-control-sm" type="text" id="input-title" name="title">
                     </div>
                     <div class="input-group">
                         <label class="form-label" for="input-year">YEAR</label>
-                        <input class="form-control" type="text" id="input-year" name="year" value="">
+                        <input class="form-control form-control-sm" type="text" id="input-year" name="year">
                     </div>
                     <div class="input-group">
-
                         <label class="form-label" for="input-artist">ARTIST</label>
-                        <select class="form-select" id="input-artist" name="artist">
+                        <select class="form-select form-select-sm" id="input-artist" name="artist">
 
                         </select>
                     </div>
                     <div class="input-group">
-
                         <label class="form-label" for="input-medium">MEDIUM</label>
-                        <select class="form-select" id="input-medium" name="medium">
+                        <select class="form-select form-select-sm" id="input-medium" name="medium">
 
                         </select>
                     </div>
                     <div class="input-group">
-
                         <label class="form-label" for="input-style">STYLE</label>
-                        <select class="form-select" id="input-style" name="style">
+                        <select class="form-select form-select-sm" id="input-style" name="style">
 
                         </select>
                     </div>
                     <div class="input-group">
                         <label class="form-label" for="input-thumbnail">THUMBNAIL</label>
-                        <input class="form-control" type="file" id="input-thumbnail" name="thumbnail">
+                        <input class="form-control form-control-sm" type="file" id="input-thumbnail" name="thumbnail">
                         <div class="input-group-text" for="input-image"><img class="icon-small" src="img/folder.png">
                         </div>
                     </div>
                     <div class="input-group">
                         <label class="form-label" for="input-image">IMAGE</label>
-                        <input class="form-control" type="file" id="input-image" name="image">
+                        <input class="form-control form-control-sm" type="file" id="input-image" name="image">
                         <div class="input-group-text" for="input-image"><img class="icon-small" src="img/folder.png">
                         </div>
                     </div>
                     <div class="input-group">
+                        <input id="input-id" type="hidden" name="id">
+                        <input type="hidden" name="action" value="update">
                         <button id="apply-button" class="btn" type="submit">
                             <div class="button-text">UPDATE</div>
                             <img class="icon" src="img/arrow.png">
@@ -76,15 +75,14 @@
                 </form>
             </div>
         </div>
-
-        <?php
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        //     include 'edit.php';
-        // }
-        ?>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/update.js"></script>
+    <script src="js/artist.js"></script>
+    <script src="js/medium.js"></script>
+    <script src="js/style.js"></script>
 </body>
 
 </html>

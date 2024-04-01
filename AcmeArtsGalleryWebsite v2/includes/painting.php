@@ -6,12 +6,13 @@ class painting extends config
     // fetch all paintings
     public function gallery()
     {
-        // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId
+        // select all bar paintingImage from paintings
         $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
                 FROM paintings p
                 INNER JOIN artists a ON p.artistId = a.artistId
                 INNER JOIN mediums m ON p.mediumId = m.mediumId
-                INNER JOIN styles s ON p.styleId = s.styleId";
+                INNER JOIN styles s ON p.styleId = s.styleId
+                ORDER BY p.paintingId";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -25,19 +26,41 @@ class painting extends config
     }
 
     // fetch painting by painting id
-    public function details($id)
+    public function detailsName($id)
     {
-        // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId where $field = :field
+        // select all from paintings with artistName, mediumName and styleName
         $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
                 FROM paintings p
                 INNER JOIN artists a ON p.artistId = a.artistId
                 INNER JOIN mediums m ON p.mediumId = m.mediumId
                 INNER JOIN styles s ON p.styleId = s.styleId
-                WHERE p.{$id} = :{$id}";
+                WHERE p.paintingId = :paintingId";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute([":{$id} => {$id}"]); // bindParam
+            $stmt->execute([":paintingId" => $id]); // bindParam
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+
+        return $result;
+    }
+
+    // fetch painting by painting id
+    public function detailsId($id)
+    {
+        // select all with from paintings artistId, mediumId and styleId
+        $sql = "SELECT p.paintingId, p.paintingImage, p.paintingThumbnail, p.paintingTitle, p.paintingYear, a.artistId, m.mediumId, s.styleId
+                FROM paintings p
+                INNER JOIN artists a ON p.artistId = a.artistId
+                INNER JOIN mediums m ON p.mediumId = m.mediumId
+                INNER JOIN styles s ON p.styleId = s.styleId
+                WHERE p.paintingId = :paintingId";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":paintingId" => $id]); // bindParam
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
@@ -76,7 +99,6 @@ class painting extends config
     public function update($id, $data)
     {
         if (!empty($data)) {
-            // creates two arrays
             $fields = "";
             $i = 1;
             $count = count($data);
@@ -96,14 +118,17 @@ class painting extends config
         // update paintings with passed column names and column values by painting id
         $sql = "UPDATE paintings
                 SET {$fields}
-                WHERE {$id} = :{$id}";
+                WHERE paintingId = :paintingId";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $data['id'] = $id; // add variable id of id value to array
+            $data["paintingId"] = $id; // set field in array as value
+            $this->conn->beginTransaction();
             $stmt->execute($data); // bindParams
+            $this->conn->commit();
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
+            $this->conn->rollback();
         }
     }
 
@@ -111,11 +136,11 @@ class painting extends config
     public function delete($id)
     {
         $sql = "DELETE FROM paintings
-                WHERE {$id} = :{$id}";
+                WHERE paintingId = :paintingId";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute([":{$id} => {$id}"]); // bindParam
+            $stmt->execute([":paintingId" => $id]); // bindParam
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
         }
@@ -124,17 +149,17 @@ class painting extends config
     // search for an existing painting by painting title
     public function search($title)
     {
-        // select all from paintings and inner join artists.artistId, mediums.mediumId and styles.styleId where $title = :title
+        // select all bar paintingThumbnail from paintings and inner join a.artistId, m.mediumId and s.styleId where p.paintingTitle = :title
         $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
                 FROM paintings p
                 INNER JOIN artists a ON p.artistId = a.artistId
                 INNER JOIN mediums m ON p.mediumId = m.mediumId
                 INNER JOIN styles s ON p.styleId = s.styleId
-                WHERE p.{$title} = :{$title}";
+                WHERE p.paintingTitle = :paintingTitle";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $stmt->execute([":{$title} => {$title}"]); // bindParam
+            $stmt->execute([":paintingTitle" => $title]); // bindParam
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
