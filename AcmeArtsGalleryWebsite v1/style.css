@@ -119,6 +119,16 @@ a:hover {
   border: none;
 }
 
+/* Index */
+#welcome-container {
+  background-color: white;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #DC8B9F;
+}
+
 /* Paintings */
 #paintings-container {
   display: grid;

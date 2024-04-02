@@ -19,20 +19,19 @@
                             require('config.php');
 
                             $sql = "SELECT s.styleId, s.styleName FROM styles s";
-                            
+
                             try {
                                 $stmt = $conn->prepare("$sql");
                                 $stmt->execute();
                                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                            }
-                            catch (PDOException $e) {
+                            } catch (PDOException $e) {
                                 echo "ERROR: " . $e->getMessage();
                             }
                             ?>
 
-                            <?php foreach ($result as $row): ?>
-                                <a class="list-group-item list-group-item-action" href="filter_style.php?id=<?=$row['styleId']?>">
-                                    <?=$row['styleName']?>
+                            <?php foreach ($result as $row) : ?>
+                                <a class="list-group-item list-group-item-action" href="filter_style.php?id=<?= $row['styleId'] ?>">
+                                    <?= $row['styleName'] ?>
                                 </a>
                             <?php endforeach ?>
                         </div>
@@ -52,22 +51,21 @@
                         <div class="list-group list-group-flush">
                             <?php
                             require('config.php');
-                            
+
                             $sql = "SELECT a.artistId, a.artistName FROM artists a";
-                            
+
                             try {
                                 $stmt = $conn->prepare("$sql");
                                 $stmt->execute();
                                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                            }
-                            catch (PDOException $e) {
+                            } catch (PDOException $e) {
                                 echo "ERROR: " . $e->getMessage();
                             }
                             ?>
 
-                            <?php foreach ($result as $row): ?>
-                                <a class="list-group-item list-group-item-action" href="filter_artist.php?id=<?=$row['artistId']?>">
-                                    <?=$row['artistName']?>
+                            <?php foreach ($result as $row) : ?>
+                                <a class="list-group-item list-group-item-action" href="filter_artist.php?id=<?= $row['artistId'] ?>">
+                                    <?= $row['artistName'] ?>
                                 </a>
                             <?php endforeach ?>
                         </div>
@@ -77,7 +75,7 @@
         </div>
         <a id="apply-button" class="btn" href="#">
             <div class="button-text">APPLY</div>
-            <img class="icon" src="Icons/arrow.png">
+            <img class="icon" src="img/arrow.png">
         </a>
     </div>
 </div>

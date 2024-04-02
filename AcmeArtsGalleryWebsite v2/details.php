@@ -26,7 +26,7 @@
                     </tbody>
                 </table>
 
-                <div id="button-container">
+                <div id="two-button-container">
                     <div id="button-edit">
 
                     </div>

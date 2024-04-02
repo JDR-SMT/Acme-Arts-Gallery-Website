@@ -13,19 +13,15 @@ $(document).ready(function () {
                 gallery.forEach(function(painting) {
                     $("#gallery-table-body").append(
                         `<tr>
-                            <td>
-                                <a id="details-button" class="btn" href="details.php?id=${painting.paintingId}">
-                                    <img class="icon-small" src="img/details.png">
+                            <td id="three-button-container">
+                                <a class="btn button-icon-sm" href="details.php?id=${painting.paintingId}">
+                                    <img class="icon-sm" src="img/details.png">
                                 </a>
-                            </td>
-                            <td>
-                                <a id="update-button" class="btn" href="update.php?id=${painting.paintingId}">
-                                    <img class="icon-small" src="img/update.png">
+                                <a class="btn button-icon-sm" href="update.php?id=${painting.paintingId}">
+                                    <img class="icon-sm" src="img/update.png">
                                 </a>
-                            </td>
-                            <td>
-                                <a id="delete-button" class="btn" href="delete.php?id=${painting.paintingId}" onclick="return confirm('Delete this painting?')">
-                                    <img class="icon-small" src="img/delete.png">
+                                <a class="btn button-icon-sm" href="delete.php?id=${painting.paintingId}" onclick="return confirm('Delete this painting?')">
+                                    <img class="icon-sm" src="img/delete.png">
                                 </a>
                             </td>
                             <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" /></td>

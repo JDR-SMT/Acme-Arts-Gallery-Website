@@ -35,7 +35,7 @@
         </div>
         <a id="apply-button" class="btn" href="#">
             <div class="button-text">APPLY</div>
-            <img class="icon" src="img/arrow.png">
+            <img class="icon-md" src="img/arrow.png">
         </a>
     </div>
 </div>

@@ -103,7 +103,7 @@ class painting extends config
             $i = 1;
             $count = count($data);
 
-            // set field array with column names, set placeholder array with column values
+            // concat column names and column values
             foreach ($data as $field => $value) {
                 $fields .= "{$field} = :{$field}";
 
@@ -149,7 +149,7 @@ class painting extends config
     // search for an existing painting by painting title
     public function search($title)
     {
-        // select all bar paintingThumbnail from paintings and inner join a.artistId, m.mediumId and s.styleId where p.paintingTitle = :title
+        // select all bar paintingThumbnail from paintings
         $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
                 FROM paintings p
                 INNER JOIN artists a ON p.artistId = a.artistId

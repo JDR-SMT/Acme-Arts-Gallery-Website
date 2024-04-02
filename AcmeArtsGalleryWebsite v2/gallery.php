@@ -15,19 +15,17 @@
     ?>
 
     <div class="container-lg">
-        <div id="paintings-container" class="title-container">
-            <div id="paintings-title" class="title">PAINTINGS</div>
+        <div id="gallery-container" class="title-container">
+            <div id="gallery-title" class="title">PAINTINGS</div>
             <div id="filter-container">
-                <a id="filter-button" class="btn" href="#offcanvas-filter" data-bs-toggle="offcanvas">
-                    <img class="icon" src="img/filter.png">
+                <a class="btn button-icon-md" href="#offcanvas-filter" data-bs-toggle="offcanvas">
+                    <img class="icon-md" src="img/filter.png">
                 </a>
             </div>
         </div>
         <table class="table table-borderless">
             <thead>
                 <tr>
-                    <th></th>
-                    <th></th>
                     <th></th>
                     <th></th>
                     <th>TITLE</th>

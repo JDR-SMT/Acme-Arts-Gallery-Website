@@ -11,22 +11,22 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">
-                        <img class="icon" src="img/home.png">
+                        <img class="icon-md" src="img/home.png">
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="gallery.php">
-                        <img class="icon" src="img/gallery.png">
+                        <img class="icon-md" src="img/gallery.png">
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="search.php">
-                        <img class="icon" src="img/loupe.png">
+                        <img class="icon-md" src="img/loupe.png">
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="add.php">
-                        <img class="icon" src="img/add.png">
+                        <img class="icon-md" src="img/add.png">
                     </a>
                 </li>
             </ul>

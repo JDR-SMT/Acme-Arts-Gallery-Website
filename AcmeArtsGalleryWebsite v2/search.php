@@ -18,13 +18,16 @@
             <form action="" method="post">
                 <div class="input-group">
                     <input class="form-control" type="text" name="title">
-                    <button id="search-button" class="btn" type="submit"><img class="icon-small" src="img/search.png"></button>
+                    <button id="search-button" class="btn" type="submit"><img class="icon-sm" src="img/search.png"></button>
                 </div>
             </form>
         </div>
+
+        <!-- insert details container -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- insert script files -->
 </body>
 
 </html>
