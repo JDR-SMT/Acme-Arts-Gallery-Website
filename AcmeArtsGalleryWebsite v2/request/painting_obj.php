@@ -61,8 +61,49 @@ if ($action == "detailsId") {
     }
 }
 
-// add or update action
-if ($action == "add" || $action == "update" && !empty($_POST)) {
+// add action
+if ($action == "add" && !empty($_POST)) {
+    $paintingId = (!empty($_POST["id"])) ? $_POST["id"] : "";
+    $paintingTitle = $_POST["title"];
+    $paintingYear = $_POST["year"];
+    $paintingThumbnail = file_get_contents($_FILES["thumbnail"]["tmp_name"]);
+    $paintingImage = file_get_contents($_FILES["image"]["tmp_name"]);
+    $artistId = $_POST["artist"];
+    $mediumId = $_POST["medium"];
+    $styleId = $_POST["style"];
+
+    $paintingData = [
+        "paintingTitle" => $paintingTitle,
+        "paintingYear" => $paintingYear,
+        "paintingThumbnail" => $paintingThumbnail,
+        "paintingImage" => $paintingImage,
+        "artistId" => $artistId,
+        "mediumId" => $mediumId,
+        "styleId" => $styleId,
+    ];
+
+    $paintingId = $obj->add($paintingData);
+
+    if (!empty($paintingId)) {
+        $painting = $obj->detailsId($paintingId);
+
+        // image must be base64_encoded before json_encoded
+        if ($painting["paintingImage"]) {
+            $painting["paintingImage"] = base64_encode($painting["paintingImage"]);
+        }
+
+        // thumbnail must be base64_encoded before json_encoded
+        if ($painting["paintingThumbnail"]) {
+            $painting["paintingThumbnail"] = base64_encode($painting["paintingThumbnail"]);
+        }
+
+        echo json_encode($painting);
+        exit();
+    }
+}
+
+// update action
+if ($action == "update" && !empty($_POST)) {
     $paintingId = (!empty($_POST["id"])) ? $_POST["id"] : "";
     $paintingTitle = $_POST["title"];
     $paintingYear = $_POST["year"];
@@ -124,12 +165,7 @@ if ($action == "add" || $action == "update" && !empty($_POST)) {
         ];
     }
 
-    // if a paintingId was passed update the existing painting, else add a new painting
-    if ($paintingId) {
-        $obj->update($paintingId, $paintingData);
-    } else {
-        $paintingId = $obj->add($paintingData);
-    }
+    $obj->update($paintingId, $paintingData);
 
     if (!empty($paintingId)) {
         $painting = $obj->detailsId($paintingId);
