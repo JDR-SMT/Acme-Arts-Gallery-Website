@@ -136,7 +136,7 @@ class painting extends config
     }
 
     // delete an existing painting by painting id
-    public function delete($id)
+    public function deleteSelected($id)
     {
         $sql = "DELETE FROM paintings
                 WHERE paintingId = :paintingId";

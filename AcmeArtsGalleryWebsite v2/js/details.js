@@ -47,7 +47,7 @@ $(document).ready(function () {
                 );
 
                 $("#button-delete").append(
-                    `<a class="btn button-icon-sm" href="delete.php?id=${details.paintingId}" onclick="return confirm('Delete this painting?')">
+                    `<a class="btn button-icon-sm" href="#" data-id="${details.paintingId}">
                         <img class="icon-sm" src="img/delete.png">
                     </a>`
                 );
@@ -58,4 +58,32 @@ $(document).ready(function () {
             console.log(thrownError);
         }
     });
+	
+	// Delete painting
+	$(document).on("click", "#button-delete", function (e) {
+		e.preventDefault();
+	
+	// Popup to confirm deletion
+    if (confirm("Delete this painting?")) {
+		$.ajax({
+			url: "request/painting_obj.php",
+			type: "GET",
+			dataType: "json",
+			data: { paintingId: id, action: "deleteSelected" },
+			
+			success: function (deleteSelected) {
+				// If successfully deleted
+				if (deleteSelected.deleted == 0) {
+					if(confirm("Painting has been deleted")) {
+						window.location.href = "gallery.php";
+					}
+				}
+			},
+		    error: function(xhr, ajaxOptions, thrownError) {
+				console.log(xhr.status);
+				console.log(thrownError);
+		  },
+		});
+	}    
+	});
 });

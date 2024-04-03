@@ -20,7 +20,7 @@ $(document).ready(function () {
                                 <a class="btn button-icon-sm" href="update.php?id=${painting.paintingId}">
                                     <img class="icon-sm" src="img/update.png">
                                 </a>
-                                <a class="btn button-icon-sm" href="delete.php?id=${painting.paintingId}" onclick="return confirm('Delete this painting?')">
+                                <a id="delete-button" class="btn button-icon-sm" href="#" data-id="${painting.paintingId}">
                                     <img class="icon-sm" src="img/delete.png">
                                 </a>
                             </td>
@@ -40,4 +40,34 @@ $(document).ready(function () {
             console.log(thrownError);
         }
     });
+	
+	// Delete painting
+	$(document).on("click", "#delete-button", function (e) {
+		e.preventDefault();
+	
+	var id = $(this).data("id");
+	
+	// Popup to confirm deletion
+    if (confirm("Delete this painting?")) {
+		$.ajax({
+			url: "request/painting_obj.php",
+			type: "GET",
+			dataType: "json",
+			data: { paintingId: id, action: "deleteSelected" },
+	  
+			success: function (deleteSelected) {
+				// If successfully deleted
+				if (deleteSelected.deleted == 0) {
+					if(confirm("Painting has been deleted")) {
+						window.location.href = "gallery.php";
+					}
+				}
+			},
+		    error: function(xhr, ajaxOptions, thrownError) {
+				console.log(xhr.status);
+				console.log(thrownError);
+		  },
+		});
+	}    
+	});
 });
