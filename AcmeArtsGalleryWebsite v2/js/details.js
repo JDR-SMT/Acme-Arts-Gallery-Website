@@ -41,14 +41,14 @@ $(document).ready(function () {
                 );
 
                 $("#button-edit").append(
-                    `<a id="update-button" class="btn" href="update.php?id=${details.paintingId}">
-                        <img class="icon-small" src="img/update.png">
+                    `<a class="btn button-icon-sm" href="update.php?id=${details.paintingId}">
+                        <img class="icon-sm" src="img/update.png">
                     </a>`
                 );
 
                 $("#button-delete").append(
-                    `<a id="delete-button" class="btn" href="delete.php?id=${details.paintingId}" onclick="return confirm('Delete this painting?')">
-                        <img class="icon-small" src="img/delete.png">
+                    `<a class="btn button-icon-sm" href="delete.php?id=${details.paintingId}" onclick="return confirm('Delete this painting?')">
+                        <img class="icon-sm" src="img/delete.png">
                     </a>`
                 );
             }
