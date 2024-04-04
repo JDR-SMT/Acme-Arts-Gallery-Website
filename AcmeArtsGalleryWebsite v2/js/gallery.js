@@ -41,33 +41,33 @@ $(document).ready(function () {
         }
     });
 	
-	// Delete painting
-	$(document).on("click", "#delete-button", function (e) {
+	// delete painting
+	$(document).on("click", "#button-delete", function (e) {
 		e.preventDefault();
 	
-	var id = $(this).data("id");
-	
-	// Popup to confirm deletion
-    if (confirm("Delete this painting?")) {
-		$.ajax({
-			url: "request/painting_obj.php",
-			type: "GET",
-			dataType: "json",
-			data: { paintingId: id, action: "deleteSelected" },
-	  
-			success: function (deleteSelected) {
-				// If successfully deleted
-				if (deleteSelected.deleted == 0) {
-					if(confirm("Painting has been deleted")) {
-						window.location.href = "gallery.php";
-					}
-				}
-			},
-		    error: function(xhr, ajaxOptions, thrownError) {
-				console.log(xhr.status);
-				console.log(thrownError);
-		  },
-		});
-	}    
+        var id = $(this).data("id");
+        
+        // popup to confirm deletion
+        if (confirm("Delete this painting?")) {
+            $.ajax({
+                url: "request/painting_obj.php",
+                type: "GET",
+                dataType: "json",
+                data: { paintingId: id, action: "delete" },
+        
+                success: function (result) {
+                    // if successfully deleted
+                    if (result.deleted == 0) {
+                        if(alert("Painting has been deleted.")) {
+                            window.location.href = "gallery.php";
+                        }
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                } 
+            });
+        }    
 	});
 });

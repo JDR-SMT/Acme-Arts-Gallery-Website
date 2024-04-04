@@ -186,18 +186,18 @@ if ($action == "update" && !empty($_POST)) {
 }
 
 // delete action
-if ($action == "deleteSelected") {
+if ($action == "delete") {
     $paintingId = (!empty($_GET["paintingId"])) ? $_GET["paintingId"] : "";
 
     if (!empty($paintingId)) {
-        $isDeleted = $obj->deleteSelected($paintingId);
-		if ($isDeleted) {
-			$message = ['deleted' => 1];
-		} else {
-			$message = ['deleted' => 0];
-		}
-		echo json_encode($message);
-		exit();
+        $deleted = $obj->delete($paintingId);
+        if ($deleted) {
+            $message = ['deleted' => 1];
+        } else {
+            $message = ['deleted' => 0];
+        }
+        echo json_encode($message);
+        exit();
     }
 }
 

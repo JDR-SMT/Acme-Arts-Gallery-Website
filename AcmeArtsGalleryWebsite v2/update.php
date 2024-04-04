@@ -55,21 +55,21 @@
                     <div class="input-group">
                         <label class="form-label" for="input-thumbnail">THUMBNAIL</label>
                         <input class="form-control form-control-sm" type="file" id="input-thumbnail" name="thumbnail">
-                        <div class="input-group-text" for="input-image"><img class="icon-small" src="img/folder.png">
+                        <div class="input-group-text" for="input-image"><img class="icon-xs" src="img/folder.png">
                         </div>
                     </div>
                     <div class="input-group">
                         <label class="form-label" for="input-image">IMAGE</label>
                         <input class="form-control form-control-sm" type="file" id="input-image" name="image">
-                        <div class="input-group-text" for="input-image"><img class="icon-small" src="img/folder.png">
+                        <div class="input-group-text" for="input-image"><img class="icon-xs" src="img/folder.png">
                         </div>
                     </div>
                     <div class="input-group">
                         <input id="input-id" type="hidden" name="id">
                         <input type="hidden" name="action" value="update">
-                        <button id="apply-button" class="btn" type="submit">
+                        <button id="update-button" class="btn" type="submit">
                             <div class="button-text">UPDATE</div>
-                            <img class="icon" src="img/arrow.png">
+                            <img class="icon-md" src="img/arrow.png">
                         </button>
                     </div>
                 </form>

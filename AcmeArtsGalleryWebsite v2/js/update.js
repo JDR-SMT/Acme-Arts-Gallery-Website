@@ -13,11 +13,11 @@ $(document).ready(function () {
             console.log(details);
 
             if (details) {
-                $("#image").append(
+                $("#image").html(
                     `<img src="data:image/png;base64,${details.paintingImage}" style="max-height:350px; max-width:400px" />`
                 );
 
-                $("#thumbnail").append(
+                $("#thumbnail").html(
                     `<img src="data:image/png;base64,${details.paintingThumbnail}" style="max-height:100px; max-width:100px" />`
                 );
 

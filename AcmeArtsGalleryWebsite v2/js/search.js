@@ -22,11 +22,11 @@ $(document).ready(function() {
 					$("#button-delete").empty();
 					
 					// Append new content					
-					$("#image").append(
+					$("#image").html(
 						`<img src="data:image/png;base64,${search.paintingImage}" style="max-height:450px; max-width:400px" />`
 					);
 
-					$("#details-table-body").append(
+					$("#details-table-body").html(
 						`<tr>
 							<th>TITLE</th>
 							<td>${search.paintingTitle}</td>
@@ -49,13 +49,13 @@ $(document).ready(function() {
 						</tr>`
 					);
 
-					$("#button-edit").append(
+					$("#button-edit").html(
 						`<a class="btn button-icon-sm" href="update.php?id=${search.paintingId}">
 							<img class="icon-sm" src="img/update.png">
 						</a>`
 					);
 
-					$("#button-delete").append(
+					$("#button-delete").html(
 						`<a id="delete-button" class="btn button-icon-sm" href="#" data-id="${search.paintingId}">
                         <img class="icon-sm" src="img/delete.png">
                     </a>`
@@ -68,34 +68,33 @@ $(document).ready(function() {
 			}
 		});		
 	});
-	
-	// Delete painting
-	$(document).on("click", "#button-delete", function (e) {
+
+	// delete painting
+	$(document).on("click", "#delete-button", function (e) {
 		e.preventDefault();
-	
-	var id = $(this).data("id");
-	
-	// Popup to confirm deletion
-    if (confirm("Delete this painting?")) {
-		$.ajax({
-			url: "request/painting_obj.php",
-			type: "GET",
-			dataType: "json",
-			data: { paintingId: id, action: "deleteSelected" },
-	  
-			success: function (deleteSelected) {
-				// If successfully deleted
-				if (deleteSelected.deleted == 0) {
-					if(confirm("Painting has been deleted")) {
-						window.location.href = "gallery.php";
-					}
-				}
-			},
-		    error: function(xhr, ajaxOptions, thrownError) {
-				console.log(xhr.status);
-				console.log(thrownError);
-		  },
-		});
-	}    
+
+		var id = $(this).data("id");
+
+        // popup to confirm deletion
+        if (confirm("Delete this painting?")) {
+            $.ajax({
+                url: "request/painting_obj.php",
+                type: "GET",
+                dataType: "json",
+                data: { paintingId: id, action: "delete" },
+        
+                success: function (result) {
+                    // if successfully deleted
+                    if (result.deleted == 0) {
+                        alert("Painting has been deleted.");
+                        window.location.href = "gallery.php";
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                } 
+            });
+        }    
 	});
 });
