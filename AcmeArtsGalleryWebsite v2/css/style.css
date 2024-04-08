@@ -229,6 +229,26 @@ td {
   border-radius: 0px;
 }
 
+.accordion-body .btn {
+  border: none;
+  width: auto;
+  justify-content: left;
+}
+
+.accordion-body .btn:hover {
+  border: none;
+  width: auto;
+  justify-content: left;
+  color: #dc8b9f;
+}
+
+.accordion-body .btn-check:checked + .btn {
+  border: none;
+  width: auto;
+  justify-content: left;
+  color: #dc8b9f;
+}
+
 /* Accordion */
 .accordion-header {
   border-bottom: 2px solid #dc8b9f;

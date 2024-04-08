@@ -15,6 +15,13 @@ $(document).ready(function () {
                         `<option value="${style.styleId}">${style.styleName}</option>`
                     );
                 });
+
+                styles.forEach(function(style) {                    
+                    $("#accordion-style").append(
+                        `<input type="radio" class="btn-check" name="options" id="${style.styleName}" onclick="document.getElementById('filter').action='gallery_style.php?id=${style.styleId}';">
+                        <label class="btn" for="${style.styleName}">${style.styleName}</label>`
+                    );
+                });
             }
         },
         error: function(xhr, ajaxOptions, thrownError) {

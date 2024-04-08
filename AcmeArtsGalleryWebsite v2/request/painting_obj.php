@@ -61,9 +61,46 @@ if ($action == "detailsId") {
     }
 }
 
+// detialsStyleId action
+if ($action == "detailsStyleId") {
+    $styleId = (!empty($_GET["styleId"])) ? $_GET["styleId"] : "";
+
+    if (!empty($styleId)) {
+        $painting = $obj->detailsStyleId($styleId);
+
+        foreach ($painting as $field => $value) {
+            if ($painting[$field]["paintingThumbnail"]) {
+                $painting[$field]["paintingThumbnail"] = base64_encode($painting[$field]["paintingThumbnail"]);
+            }
+        }
+
+
+        echo json_encode($painting);
+        exit();
+    }
+}
+
+// detialsArtistId action
+if ($action == "detailsArtistId") {
+    $artistId = (!empty($_GET["artistId"])) ? $_GET["artistId"] : "";
+
+    if (!empty($artistId)) {
+        $painting = $obj->detailsArtistId($artistId);
+
+        foreach ($painting as $field => $value) {
+            if ($painting[$field]["paintingThumbnail"]) {
+                $painting[$field]["paintingThumbnail"] = base64_encode($painting[$field]["paintingThumbnail"]);
+            }
+        }
+
+
+        echo json_encode($painting);
+        exit();
+    }
+}
+
 // add action
 if ($action == "add" && !empty($_POST)) {
-    $paintingId = (!empty($_POST["id"])) ? $_POST["id"] : "";
     $paintingTitle = $_POST["title"];
     $paintingYear = $_POST["year"];
     $paintingThumbnail = file_get_contents($_FILES["thumbnail"]["tmp_name"]);
