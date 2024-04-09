@@ -1,5 +1,9 @@
 <html lang="en">
 
+<!--Team Name: MRS Tech
+	Team Member: Ben Stafford
+	Date: 09/04/2024-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +30,7 @@
                 </div>
                 <div class="input-group">
                         <label class="form-label" for="input-artist">ARTIST</label>
-                        <select class="form-select form-select-sm" id="input-artist" name="artist">
+                        <select class="form-select form-select-sm" id="input-artist" name="artist" required>
                         <option value=""></option>
                         </select>
                 </div>

@@ -1,9 +1,15 @@
+<!--Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Ben Stafford
+	Date: 09/04/2024-->
+
 <div id="offcanvas-filter" class="offcanvas offcanvas-end" tabindex="-1">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title">Filter</h5>
         <a id="clear-all-link" href="gallery.php">Clear All</a>
         <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
     </div>
+	
+	<!--Ben Stafford-->
     <div class="offcanvas-body" id="accordion">
         <form id="filter" action="" method="post">
             <div class="accordion accordion-flush">
@@ -23,6 +29,8 @@
                     </div>
                 </div>
             </div>
+			
+			<!--Ben Stafford-->
             <div class="accordion accordion-flush">
                 <div class="accordion-item">
                     <h6 class="accordion-header">

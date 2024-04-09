@@ -1,3 +1,7 @@
+/*Team Name: MRS Tech
+	Team Member: Ben Stafford
+	Date: 09/04/2024*/
+
 $(document).ready(function () {
 
         // get id from url

@@ -1,3 +1,7 @@
+/*Team Name: MRS Tech
+	Team Member: Ben Stafford
+	Date: 09/04/2024*/
+
 $(document).ready(function () {
         // post update
         $(document).on("submit", "#form-add", function(event) {
@@ -16,6 +20,7 @@ $(document).ready(function () {
                     console.log(response);
     
                     if (response) {
+						alert("Painting has been added.")
                         window.location.href = `details.php?id=${id}`;          
                     }
                 },

@@ -1,3 +1,8 @@
+<!--Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+	Date: 09/04/2024-->
+
+<!--Jack Dylan Rendle-->
 <?php
 $action = $_REQUEST["action"];
 
@@ -61,6 +66,7 @@ if ($action == "detailsId") {
     }
 }
 
+// Ben Stafford
 // detialsStyleId action
 if ($action == "detailsStyleId") {
     $styleId = (!empty($_GET["styleId"])) ? $_GET["styleId"] : "";
@@ -80,6 +86,7 @@ if ($action == "detailsStyleId") {
     }
 }
 
+// Ben Stafford
 // detialsArtistId action
 if ($action == "detailsArtistId") {
     $artistId = (!empty($_GET["artistId"])) ? $_GET["artistId"] : "";
@@ -222,6 +229,7 @@ if ($action == "update" && !empty($_POST)) {
     }
 }
 
+// Jack Dylan Rendle, Andrew Millett
 // delete action
 if ($action == "delete") {
     $paintingId = (!empty($_GET["paintingId"])) ? $_GET["paintingId"] : "";

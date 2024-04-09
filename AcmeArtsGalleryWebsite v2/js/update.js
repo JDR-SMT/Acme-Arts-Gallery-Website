@@ -1,3 +1,7 @@
+/*Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle
+	Date: 02/04/2024*/
+
 $(document).ready(function () {
     // get id from url
     var id = document.URL.substring(document.URL.lastIndexOf('?')+4);
@@ -38,26 +42,29 @@ $(document).ready(function () {
     // post update
     $(document).on("submit", "#form-update", function(event) {
         event.preventDefault();
+		
+		if (confirm("Update this painting?")){
+			$.ajax({
+				url: "request/painting_obj.php",
+				type: "POST",
+				dataType: "json",
+				data: new FormData(this),
+				processData: false,
+				contentType: false,
 
-        $.ajax({
-            url: "request/painting_obj.php",
-            type: "POST",
-            dataType: "json",
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
+				success: function (response) {
+					console.log(response);
 
-            success: function (response) {
-                console.log(response);
-
-                if (response) {
-                    window.location.href = `details.php?id=${id}`;          
-                }
-            },
-            error: function(xhr, ajaxOptions, thrownError) {
-                console.log(xhr.status);
-                console.log(thrownError);
-            }
-        });
+					if (response) {
+						alert("Painting has been updated.")
+						window.location.href = `details.php?id=${id}`;          
+					}
+				},
+				error: function(xhr, ajaxOptions, thrownError) {
+					console.log(xhr.status);
+					console.log(thrownError);
+				}
+			});
+		}        
     });
 });

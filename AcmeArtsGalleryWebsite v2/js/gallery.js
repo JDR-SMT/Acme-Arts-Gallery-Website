@@ -1,3 +1,7 @@
+/*Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Andrew Millett
+	Date: 04/04/2024*/
+
 $(document).ready(function () {
     // populate gallery
         $.ajax({
@@ -41,6 +45,7 @@ $(document).ready(function () {
         }
     });
 	
+	// Andrew Millett
 	// delete painting
 	$(document).on("click", "#button-delete", function (e) {
 		e.preventDefault();
@@ -57,10 +62,10 @@ $(document).ready(function () {
         
                 success: function (result) {
                     // if successfully deleted
+					// Jack Dylan Rendle
                     if (result.deleted == 0) {
-                        if(alert("Painting has been deleted.")) {
-                            window.location.href = "gallery.php";
-                        }
+                        alert("Painting has been deleted.")
+						window.location.href = "gallery.php";
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {

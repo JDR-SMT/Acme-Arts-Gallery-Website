@@ -1,3 +1,8 @@
+<!--Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+	Date: 09/04/2024-->
+
+<!--Jack Dylan Rendle-->
 <?php
 include 'config.php';
 
@@ -68,7 +73,8 @@ class painting extends config
 
         return $result;
     }
-
+		
+		// Ben Stafford
         // fetch painting by style id
         public function detailsStyleId($id)
         {
@@ -91,6 +97,7 @@ class painting extends config
             return $results;
         }
 
+				// Ben Stafford
                 // fetch painting by style id
                 public function detailsArtistId($id)
                 {
@@ -128,8 +135,8 @@ class painting extends config
         }
 
         // insert paintings with passed column names and column values
-        $sql = "INSERT paintings ({implode(',', $fields)}) 
-                VALUES ({implode(',', $placeholders)})";
+        $sql = "INSERT paintings (".implode(',', $fields).") 
+                VALUES (".implode(',', $placeholders).")";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -179,6 +186,7 @@ class painting extends config
         }
     }
 
+	// Jack Dylan Rendle, Andrew Millett
     // delete an existing painting by painting id
     public function delete($id)
     {

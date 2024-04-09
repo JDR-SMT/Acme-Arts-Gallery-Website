@@ -1,3 +1,7 @@
+/*Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Ben Stafford
+	Date: 09/04/2024*/
+
 $(document).ready(function () {
     // populate details
     $.ajax({
@@ -14,10 +18,9 @@ $(document).ready(function () {
                     $("#input-artist").append(
                         `<option value="${artist.artistId}">${artist.artistName}</option>`
                     );
-                });
-
-                artists.forEach(function(artist) {                    
-                    $("#accordion-artist").append(
+					
+					// Ben Stafford
+					$("#accordion-artist").append(
                         `<input type="radio" class="btn-check" name="options" id="${artist.artistName}" onclick="document.getElementById('filter').action='gallery_artist.php?id=${artist.artistId}';">
                         <label class="btn" for="${artist.artistName}">${artist.artistName}</label>`
                     );
