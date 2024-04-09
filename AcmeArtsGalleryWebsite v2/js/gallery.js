@@ -24,7 +24,7 @@ $(document).ready(function () {
                                 <a class="btn button-icon-sm" href="update.php?id=${painting.paintingId}">
                                     <img class="icon-sm" src="img/update.png">
                                 </a>
-                                <a id="delete-button" class="btn button-icon-sm" href="#" data-id="${painting.paintingId}">
+                                <a id="button-delete" class="btn button-icon-sm" href="#" data-id="${painting.paintingId}">
                                     <img class="icon-sm" src="img/delete.png">
                                 </a>
                             </td>

@@ -29,21 +29,21 @@
                     <input class="form-control form-control-sm" type="text" id="input-year" name="year" required>
                 </div>
                 <div class="input-group">
-                        <label class="form-label" for="input-artist">ARTIST</label>
-                        <select class="form-select form-select-sm" id="input-artist" name="artist" required>
+                    <label class="form-label" for="input-artist">ARTIST</label>
+                    <select class="form-select form-select-sm" id="input-artist" name="artist" required>
                         <option value=""></option>
-                        </select>
+                    </select>
                 </div>
                 <div class="input-group">
                     <label class="form-label" for="input-medium">MEDIUM</label>
                     <select class="form-select form-select-sm" id="input-medium" name="medium" required>
-                    <option value=""></option>
+                        <option value=""></option>
                     </select>
                 </div>
                 <div class="input-group">
                     <label class="form-label" for="input-style">STYLE</label>
                     <select class="form-select form-select-sm" id="input-style" name="style" required>
-                    <option value=""></option>
+                        <option value=""></option>
                     </select>
                 </div>
                 <div class="input-group">
@@ -57,9 +57,9 @@
                     <div class="input-group-text" for="input-image"><img class="icon-xs" src="img/folder.png"></div>
                 </div>
                 <div class="input-group">
-                        <input id="input-id" type="hidden" name="id">
-                        <input type="hidden" name="action" value="add">
-                        <button id="add-button" class="btn" type="submit">
+                    <input id="input-id" type="hidden" name="id">
+                    <input type="hidden" name="action" value="add">
+                    <button id="add-button" class="btn" type="submit">
                         <div class="button-text">ADD</div>
                         <img class="icon-md" src="img/arrow.png">
                     </button>

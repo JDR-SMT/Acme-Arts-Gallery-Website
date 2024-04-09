@@ -1,9 +1,10 @@
-<!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
-	Date: 09/04/2024-->
-
-<!--Jack Dylan Rendle-->
 <?php
+//  Team Name: MRS Tech
+// 	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+// 	Date: 09/04/2024
+
+// Jack Dylan Rendle
+
 $action = $_REQUEST["action"];
 
 // create painting class object

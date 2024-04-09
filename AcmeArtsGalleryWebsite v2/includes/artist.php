@@ -1,8 +1,8 @@
-<!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
-	Date: 02/04/2024-->
-
 <?php
+//  Team Name: MRS Tech
+// 	Team Member: Jack Dylan Rendle
+// 	Date: 02/04/2024
+
 include 'config.php';
 
 class artist extends config

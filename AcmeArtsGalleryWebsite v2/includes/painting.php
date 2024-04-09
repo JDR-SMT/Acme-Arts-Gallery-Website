@@ -1,9 +1,10 @@
-<!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
-	Date: 09/04/2024-->
-
-<!--Jack Dylan Rendle-->
 <?php
+//  Team Name: MRS Tech
+// 	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+// 	Date: 09/04/2024
+
+// Jack Dylan Rendle
+
 include 'config.php';
 
 class painting extends config
@@ -73,52 +74,52 @@ class painting extends config
 
         return $result;
     }
-		
-		// Ben Stafford
-        // fetch painting by style id
-        public function detailsStyleId($id)
-        {
-            // select all with from paintings artistId, mediumId and styleId
-            $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName
+
+    // Ben Stafford
+    // fetch painting by style id
+    public function detailsStyleId($id)
+    {
+        // select all with from paintings artistId, mediumId and styleId
+        $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName
                     FROM paintings p
                     INNER JOIN artists a ON p.artistId = a.artistId
                     INNER JOIN mediums m ON p.mediumId = m.mediumId
                     WHERE p.styleId = :styleId";
 
-    
-            try {
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute([":styleId" => $id]); // bindParam
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo "ERROR: " . $e->getMessage();
-            }
-    
-            return $results;
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":styleId" => $id]); // bindParam
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
 
-				// Ben Stafford
-                // fetch painting by style id
-                public function detailsArtistId($id)
-                {
-                    // select all with from paintings artistId, mediumId and styleId
-                    $sql = $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, s.styleName, m.mediumName
+        return $results;
+    }
+
+    // Ben Stafford
+    // fetch painting by style id
+    public function detailsArtistId($id)
+    {
+        // select all with from paintings artistId, mediumId and styleId
+        $sql = $sql = "SELECT p.paintingId, p.paintingThumbnail, p.paintingTitle, p.paintingYear, s.styleName, m.mediumName
                     FROM paintings p
                     INNER JOIN styles s ON p.styleId = s.styleId
                     INNER JOIN mediums m ON p.mediumId = m.mediumId
-                    WHERE p.artistId = :artistId";            
-        
-            
-                    try {
-                        $stmt = $this->conn->prepare($sql);
-                        $stmt->execute([":artistId" => $id]); // bindParam
-                        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                    } catch (PDOException $e) {
-                        echo "ERROR: " . $e->getMessage();
-                    }
-            
-                    return $results;
-                }
+                    WHERE p.artistId = :artistId";
+
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":artistId" => $id]); // bindParam
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+
+        return $results;
+    }
 
     // insert a new painting
     public function add($data)
@@ -135,8 +136,8 @@ class painting extends config
         }
 
         // insert paintings with passed column names and column values
-        $sql = "INSERT paintings (".implode(',', $fields).") 
-                VALUES (".implode(',', $placeholders).")";
+        $sql = "INSERT paintings (" . implode(',', $fields) . ") 
+                VALUES (" . implode(',', $placeholders) . ")";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -186,7 +187,7 @@ class painting extends config
         }
     }
 
-	// Jack Dylan Rendle, Andrew Millett
+    // Jack Dylan Rendle, Andrew Millett
     // delete an existing painting by painting id
     public function delete($id)
     {
