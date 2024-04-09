@@ -1,5 +1,5 @@
 /*Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Ben Stafford
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
 	Date: 09/04/2024*/
 
 /* #region Font */
@@ -399,5 +399,46 @@ select {
       margin-right: 0px;
       padding-right: 0px;
     }
+	
+	/* Andrew Millett */
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr {
+		display: block;
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+	}
+		
+	td:before {
+		/* Top/Left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+	
+	/*
+	Lable the data
+	*/
+	td:nth-of-type(3):before { content: "TITLE:"; }
+	td:nth-of-type(4):before { content: "YEAR:"; }
+	td:nth-of-type(5):before { content: "ARTIST:"; }
+	td:nth-of-type(6):before { content: "MEDIUM:"; }
+	td:nth-of-type(7):before { content: "STYLE:"; }
 }
 /* #endregion Mobile */
