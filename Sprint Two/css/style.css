@@ -126,8 +126,10 @@ a.button-icon-md {
 
 /* #region Index */
 #background-container {
-  height: 89.3vh;
+  height: 80vh;
   background-image: url(../img/background.png);
+  background-repeat: repeat-x;
+  background-position: left bottom;
 }
 
 #background-container .container-lg {

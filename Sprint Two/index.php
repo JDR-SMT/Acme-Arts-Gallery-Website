@@ -1,7 +1,7 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
+	Team Member: Benjamin Stafford / Jack Dylan Rendle
 	Date: 02/04/2024-->
 
 <head>
