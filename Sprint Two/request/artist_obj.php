@@ -128,3 +128,14 @@ if ($action == "artistName") {
     echo json_encode($artist);
     exit();
 }
+
+// search action
+if ($action == "search") {
+    $artistName = (!empty($_GET["artistName"])) ? $_GET["artistName"] : "";
+
+    if (!empty($artistName)) {
+        $artist = $obj->search($artistName);
+        echo json_encode($artist);
+        exit();
+    }
+}

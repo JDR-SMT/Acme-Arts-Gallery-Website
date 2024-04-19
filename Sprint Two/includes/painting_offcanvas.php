@@ -11,6 +11,17 @@
 
     <!--Ben Stafford-->
     <div class="offcanvas-body">
+        <div id="search-container" style="max-width: 500px;">
+            <form id="painting-search" method="POST">
+                <div class="input-group">
+                    <input class="form-control" type="text" id="title" name="title" placeholder="Search By Name">
+                    <button id="search-button" class="btn" type="submit">
+					<img class="icon-sm" src="img/search.png">
+					</button>
+                </div>
+            </form>
+        </div>
+
         <form id="filter" action="" method="POST">
             <div class="accordion accordion-flush" id="accordion">
                 <div class="accordion-item">
@@ -55,4 +66,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/painting_style.js"></script>
     <script src="js/painting_artist.js"></script>
+    <script src="js/search.js"></script>
 </div>

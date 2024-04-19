@@ -251,12 +251,6 @@ if ($action == "search") {
 
     if (!empty($paintingTitle)) {
         $painting = $obj->search($paintingTitle);
-
-        // image must be base64_encoded before json_encoded
-        if ($painting["paintingImage"]) {
-            $painting["paintingImage"] = base64_encode($painting["paintingImage"]);
-        }
-
         echo json_encode($painting);
         exit();
     }

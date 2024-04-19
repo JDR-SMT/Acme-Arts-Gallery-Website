@@ -386,7 +386,7 @@ select {
 
 /* #region Search */
 #search-container {
-  margin: auto auto 30px;
+  border-bottom: 2px solid #dc8b9f;
 }
 
 #search-button {

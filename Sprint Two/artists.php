@@ -15,7 +15,7 @@
 <body>
     <?php
     include 'includes/nav.php';
-    include 'includes/offcanvas.php';
+    include 'includes/artist_offcanvas.php';
     ?>
 
     <div class="container-lg">

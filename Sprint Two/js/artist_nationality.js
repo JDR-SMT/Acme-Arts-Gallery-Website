@@ -18,6 +18,13 @@ $(document).ready(function () {
                     $("#input-nationality").append(
                         `<option value="${nationality.nationalityId}">${nationality.nationalityName}</option>`
                     );
+
+        			// Ben Stafford
+                    // populate filter options
+					$("#accordion-nationality").append(
+                        `<input type="radio" class="btn-check" name="options" id="${nationality.nationalityName}" onclick="document.getElementById('filter').action='artist_nationality.php?id=${nationality.nationalityId}';">
+                        <label class="btn" for="${nationality.nationalityName}">${nationality.nationalityName}</label>`
+                    );
                 });
             }
         },

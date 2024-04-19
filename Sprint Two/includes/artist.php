@@ -101,4 +101,23 @@ class artist extends config
 
         return $results;
     }
+
+        // search for an existing artist by artist name
+        public function search($name)
+        {
+            // select all bar paintingThumbnail from paintings
+            $sql = "SELECT a.artistId
+            FROM artists a
+            WHERE a.artistName = :artistName";
+    
+            try {
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([":artistName" => $name]); // bindParam
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "ERROR: " . $e->getMessage();
+            }
+    
+            return $result;
+        }
 }

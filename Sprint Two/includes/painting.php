@@ -204,11 +204,8 @@ class painting extends config
     public function search($title)
     {
         // select all bar paintingThumbnail from paintings
-        $sql = "SELECT p.paintingId, p.paintingImage, p.paintingTitle, p.paintingYear, a.artistName, m.mediumName, s.styleName
+        $sql = "SELECT p.paintingId
                 FROM paintings p
-                INNER JOIN artists a ON p.artistId = a.artistId
-                INNER JOIN mediums m ON p.mediumId = m.mediumId
-                INNER JOIN styles s ON p.styleId = s.styleId
                 WHERE p.paintingTitle = :paintingTitle";
 
         try {
