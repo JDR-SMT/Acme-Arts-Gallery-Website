@@ -22,7 +22,7 @@ $(document).ready(function () {
 					// Ben Stafford
                     // populate filter options
 					$("#accordion-style").append(
-                        `<input type="radio" class="btn-check" name="options" id="${style.styleName}" onclick="document.getElementById('filter').action='gallery_style.php?id=${style.styleId}';">
+                        `<input type="radio" class="btn-check" name="options" id="${style.styleName}" onclick="document.getElementById('filter').action='paintings.php?filter=style&id=${style.styleId}';">
                         <label class="btn" for="${style.styleName}">${style.styleName}</label>`
                     );
                 });

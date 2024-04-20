@@ -32,19 +32,7 @@
                 </a>
             </div>
         </div>
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>TITLE</th>
-                    <th>YEAR</th>
-                    <th>ARTIST</th>
-                    <th>MEDIUM</th>
-                    <th>STYLE</th>
-                </tr>
-            </thead>
-            <tbody id="paintings-table-body">
+        <table class="table table-borderless" id="paintings-table-head">
 
             </tbody>
         </table>
