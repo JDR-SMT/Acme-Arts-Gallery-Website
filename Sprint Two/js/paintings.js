@@ -1,5 +1,5 @@
 /*Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Andrew Millett
+	Team Member: Jack Dylan Rendle, Andrew Millett, Ben Stafford
 	Date: 04/04/2024*/
 
 $(document).ready(function () {
@@ -27,18 +27,21 @@ var id = urlParams.get('id');
         
                     if (paintings) {
         
-                        $("#paintings-table-head").append(
+                        $("#paintings-table").append(
                             `<thead>
                             <tr>
                                 <th></th>
                                 <th></th>
                                 <th>TITLE</th>
                                 <th>YEAR</th>
+                                <th>ARTIST</th>
                                 <th>MEDIUM</th>
                                 <th>STYLE</th>
                             </tr>
                         </thead>
-                        <tbody id="paintings-table-body">`
+                        <tbody id="paintings-table-body">
+            
+                        </tbody>`
                         )
                         paintings.forEach(function(painting) {
                             $("#paintings-table-body").append(
@@ -83,7 +86,7 @@ var id = urlParams.get('id');
         
                     if (paintings) {
         
-                        $("#paintings-table-head").append(
+                        $("#paintings-table").append(
                             `<thead>
                             <tr>
                             <th></th>
@@ -94,7 +97,9 @@ var id = urlParams.get('id');
                             <th>MEDIUM</th>
                             </tr>
                         </thead>
-                        <tbody id="paintings-table-body">`
+                        <tbody id="paintings-table-body">
+            
+                        </tbody>`
                         )
                         paintings.forEach(function(painting) {
                             $("#paintings-table-body").append(
@@ -139,7 +144,7 @@ var id = urlParams.get('id');
         
                     if (paintings) {
         
-                        $("#paintings-table-head").append(
+                        $("#paintings-table").append(
                             `<thead>
                             <tr>
                                 <th></th>
@@ -151,7 +156,9 @@ var id = urlParams.get('id');
                                 <th>STYLE</th>
                             </tr>
                         </thead>
-                        <tbody id="paintings-table-body">`
+                        <tbody id="paintings-table-body">
+            
+                        </tbody>`
                         )
                         paintings.forEach(function(painting) {
                             $("#paintings-table-body").append(

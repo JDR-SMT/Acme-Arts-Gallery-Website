@@ -32,19 +32,8 @@
                 </a>
             </div>
         </div>
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>NAME</th>
-                    <th>LIFESPAN</th>
-                    <th>NATIONALITY</th>
-                </tr>
-            </thead>
-            <tbody id="artists-table-body">
+        <table class="table table-borderless" id="artists-table">
 
-            </tbody>
         </table>
     </div>
 

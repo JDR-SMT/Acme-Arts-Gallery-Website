@@ -32,9 +32,8 @@
                 </a>
             </div>
         </div>
-        <table class="table table-borderless" id="paintings-table-head">
+        <table class="table table-borderless" id="paintings-table">
 
-            </tbody>
         </table>
     </div>
 

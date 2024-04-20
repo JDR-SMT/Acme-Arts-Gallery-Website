@@ -40,7 +40,7 @@ $(document).ready(function () {
                 //display
                 uniquePeriods.forEach(function(period) {
                     $("#accordion-lifespan").append(
-                        `<input type="radio" class="btn-check" name="options" id="${period}" onclick="document.getElementById('filter').action='artist_lifespan.php?id=${period}';">
+                        `<input type="radio" class="btn-check" name="options" id="${period}" onclick="document.getElementById('filter').action='artists.php?filter=period&id=${period - 1}';">
                         <label class="btn" for="${period}">${period}th Century</label>`
                     );
                 });

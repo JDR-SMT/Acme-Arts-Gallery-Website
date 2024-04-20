@@ -22,7 +22,7 @@ $(document).ready(function () {
         			// Ben Stafford
                     // populate filter options
 					$("#accordion-nationality").append(
-                        `<input type="radio" class="btn-check" name="options" id="${nationality.nationalityName}" onclick="document.getElementById('filter').action='artist_nationality.php?id=${nationality.nationalityId}';">
+                        `<input type="radio" class="btn-check" name="options" id="${nationality.nationalityName}" onclick="document.getElementById('filter').action='artists.php?filter=nationality&id=${nationality.nationalityId}';">
                         <label class="btn" for="${nationality.nationalityName}">${nationality.nationalityName}</label>`
                     );
                 });

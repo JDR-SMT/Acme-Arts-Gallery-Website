@@ -26,6 +26,40 @@ if ($action == "artists") {
     exit();
 }
 
+if ($action == "filterNationality") {
+    $nationalityId = (!empty($_GET["nationalityId"])) ? $_GET["nationalityId"] : "";
+
+    if (!empty($nationalityId)) {
+        $artist = $obj->filterNationality($nationalityId);
+
+        foreach ($artist as $field => $value) {
+            if ($artist[$field]["artistThumbnail"]) {
+                $artist[$field]["artistThumbnail"] = base64_encode($artist[$field]["artistThumbnail"]);
+            }
+        }
+
+        echo json_encode($artist);
+        exit();
+    }
+}
+
+if ($action == "filterPeriod") {
+    $period = (!empty($_GET["period"])) ? $_GET["period"] : "";
+
+    if (!empty($period)) {
+        $artist = $obj->filterPeriod($period);
+
+        foreach ($artist as $field => $value) {
+            if ($artist[$field]["artistThumbnail"]) {
+                $artist[$field]["artistThumbnail"] = base64_encode($artist[$field]["artistThumbnail"]);
+            }
+        }
+
+        echo json_encode($artist);
+        exit();
+    }
+}
+
 // detailsId action
 if ($action == "detailsId") {
     $artistId = (!empty($_GET["artistId"])) ? $_GET["artistId"] : "";

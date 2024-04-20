@@ -101,6 +101,45 @@ class artist extends config
 
         return $results;
     }
+        // fetch artist by nationality id
+        public function filterNationality($id)
+        {
+            // select all from paintings with mediumName and styleName
+            $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
+            FROM artists a
+            INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
+            WHERE n.nationalityId = :nationalityId";
+    
+            try {
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute([":nationalityId" => $id]); // bindParam
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "ERROR: " . $e->getMessage();
+            }
+    
+            return $results;
+        }
+
+        // search for an existing artist by period
+        public function filterPeriod($period)
+        {
+        // select all bar paintingThumbnail from paintings by period
+            $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
+            FROM artists a
+            INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
+            WHERE SUBSTRING(a.artistLifespan, 1, 2) = :artistLifespan";
+            
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":artistLifespan" => $period]); // bindParam
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $e) {
+                echo "ERROR: " . $e->getMessage();
+            }
+            
+          return $results;
+        }
 
         // search for an existing artist by artist name
         public function search($name)
