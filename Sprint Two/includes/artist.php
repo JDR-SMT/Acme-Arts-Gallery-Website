@@ -197,15 +197,27 @@ class artist extends config
     // delete an existing artist by artist id
     public function delete($id)
     {
-        $sql = "DELETE FROM artist
-                WHERE artistId = :artistId";
-
         try {
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute([":artistId" => $id]); // bindParam
-        } catch (PDOException $e) {
-            echo "ERROR: " . $e->getMessage();
-        }
+			// Check if there are any associated records in the paintings table
+			$check_sql = "SELECT COUNT(*) FROM paintings WHERE artistId = :artistId";
+			$check_stmt = $this->conn->prepare($check_sql);
+			$check_stmt->execute([":artistId" => $id]); // bindParam
+			$painting_count = $check_stmt->fetchColumn();
+			
+			if ($painting_count > 0){
+				// If there are associated paintings, handle it appropriately
+				$painting_delete_sql = "DELETE FROM paintings WHERE artistId = :artistId";
+				$painting_delete_stmt = $this->conn->prepare($painting_delete_sql);
+				$painting_delete_stmt->execute([":artistId" => $id]); // bindParam
+			}
+			
+			$artist_delete_sql = "DELETE FROM artists WHERE artistId = :artistId";
+			$artist_delete_stmt = $this->conn->prepare($artist_delete_sql);
+			$artist_delete_stmt->execute([":artistId" => $id]); // bindParam
+			
+		} catch (PDOException $e) {
+			echo "ERROR: " . $e->getMessage();
+		}
     }
 
     // search for an existing artist by artist name

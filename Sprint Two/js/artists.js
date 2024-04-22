@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Ben Stafford
-	Date: 17/04/2024*/
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+	Date: 22/04/2024*/
 
 $(document).ready(function () {
     var queryString = window.location.search;
@@ -174,4 +174,34 @@ $(document).ready(function () {
             }
         });
     }
+	
+	// Andrew Millett
+	// delete artist
+	$(document).on("click", "#button-delete", function (e) {
+		e.preventDefault();
+	
+        var id = $(this).data("id");
+        
+        // popup to confirm deletion
+        if (confirm("Delete this Artist?")) {
+            $.ajax({
+                url: "request/artist_obj.php",
+                type: "GET",
+                dataType: "json",
+                data: { artistId: id, action: "delete" },
+        
+                success: function (result) {
+                    // if successfully deleted					
+                    if (result.deleted == 0) {
+                        alert("Artist has been deleted.")
+						window.location.href = "artists.php";
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                } 
+            });
+        }   
+	});
 });
