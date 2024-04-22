@@ -1,7 +1,7 @@
 <?php
 //  Team Name: MRS Tech
-// 	Team Member: Jack Dylan Rendle
-// 	Date: 17/04/2024
+// 	Team Member: Jack Dylan Rendle, Andrew Millett
+// 	Date: 22/04/2024
 
 $action = $_REQUEST["action"];
 
@@ -53,6 +53,23 @@ if ($action == "filterPeriod") {
             if ($artist[$field]["artistThumbnail"]) {
                 $artist[$field]["artistThumbnail"] = base64_encode($artist[$field]["artistThumbnail"]);
             }
+        }
+
+        echo json_encode($artist);
+        exit();
+    }
+}
+
+// detailsName action
+if ($action == "detailsName") {
+    $artistId = (!empty($_GET["artistId"])) ? $_GET["artistId"] : "";
+
+    if (!empty($artistId)) {
+        $artist = $obj->detailsName($artistId);
+
+        // image must be base64_encoded before json_encoded
+        if ($artist["artistImage"]) {
+            $artist["artistImage"] = base64_encode($artist["artistImage"]);
         }
 
         echo json_encode($artist);
@@ -155,6 +172,22 @@ if ($action == "update" && !empty($_POST)) {
     }
 }
 
+// Andrew Millett
+// delete action
+if ($action == "delete") {
+    $artistId = (!empty($_GET["artistId"])) ? $_GET["artistId"] : "";
+
+    if (!empty($artistId)) {
+        $deleted = $obj->delete($artistId);
+        if ($deleted) {
+            $message = ['deleted' => 1];
+        } else {
+            $message = ['deleted' => 0];
+        }
+        echo json_encode($message);
+        exit();
+    }
+}
 
 // artistName action
 if ($action == "artistName") {

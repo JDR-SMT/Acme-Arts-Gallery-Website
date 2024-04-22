@@ -1,7 +1,7 @@
 <?php
 //  Team Name: MRS Tech
-// 	Team Member: Jack Dylan Rendle
-// 	Date: 17/04/2024
+// 	Team Member: Jack Dylan Rendle, Andrew Millett
+// 	Date: 22/04/2024
 
 include 'config.php';
 
@@ -25,6 +25,26 @@ class artist extends config
         }
 
         return $results;
+    }
+	
+	// fetch artist by artist id
+    public function detailsName($id)
+    {
+        // select all from artists with nationalityName
+        $sql = "SELECT a.artistId, a.artistImage, a.artistName, a.artistLifespan, n.nationalityName
+                FROM artists a
+                INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
+                WHERE a.artistId = :artistId";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":artistId" => $id]); // bindParam
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
+
+        return $result;
     }
 
     // fetch artist by artist id
@@ -140,6 +160,21 @@ class artist extends config
             
           return $results;
         }
+		
+		// Andrew Millett
+		// delete an existing artist by artist id
+		public function delete($id)
+		{
+			$sql = "DELETE FROM artist
+					WHERE artistId = :artistId";
+
+			try {
+				$stmt = $this->conn->prepare($sql);
+				$stmt->execute([":artistId" => $id]); // bindParam
+			} catch (PDOException $e) {
+				echo "ERROR: " . $e->getMessage();
+			}
+		}
 
         // search for an existing artist by artist name
         public function search($name)
