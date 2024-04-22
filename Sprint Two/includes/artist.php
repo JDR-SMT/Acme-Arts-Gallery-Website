@@ -30,7 +30,7 @@ class artist extends config
     // fetch artist by artist id
     public function detailsId($id)
     {
-        // select all from artists with nationalityId
+        // select all from artists with artistId
         $sql = "SELECT a.artistId, a.artistImage, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityId
                 FROM artists a
                 INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
@@ -104,7 +104,7 @@ class artist extends config
         // fetch artist by nationality id
         public function filterNationality($id)
         {
-            // select all from paintings with mediumName and styleName
+            // select all from artists with mediumName and styleName
             $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
             FROM artists a
             INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
@@ -124,7 +124,7 @@ class artist extends config
         // search for an existing artist by period
         public function filterPeriod($period)
         {
-        // select all bar paintingThumbnail from paintings by period
+        // select all bar artistThumbnail from artists by period
             $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
             FROM artists a
             INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
@@ -141,10 +141,39 @@ class artist extends config
           return $results;
         }
 
+        // insert a new artist
+    public function add($data)
+    {
+        if (!empty($data)) {
+            // create two arrays
+            $fields = $placeholders = [];
+
+            // set field array with column names, set placeholder array with column values
+            foreach ($data as $field => $value) {
+                $fields[] = $field;
+                $placeholders[] = ":{$field}";
+            }
+        }
+
+        // insert artists with passed column names and column values
+        $sql = "INSERT artists (" . implode(',', $fields) . ") 
+                VALUES (" . implode(',', $placeholders) . ")";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $this->conn->beginTransaction();
+            $stmt->execute($data); // bindParams
+            $this->conn->commit();
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            $this->conn->rollback();
+        }
+    }
+
         // search for an existing artist by artist name
         public function search($name)
         {
-            // select all bar paintingThumbnail from paintings
+            // select all bar artistThumbnail from artists
             $sql = "SELECT a.artistId
             FROM artists a
             WHERE a.artistName = :artistName";

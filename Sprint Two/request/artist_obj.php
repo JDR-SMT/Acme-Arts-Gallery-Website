@@ -155,6 +155,43 @@ if ($action == "update" && !empty($_POST)) {
     }
 }
 
+// add action
+if ($action == "add" && !empty($_POST)) {
+    $artistName = $_POST["name"];
+    $artistBirth = $_POST["birth"];
+    $artistDeceased = $_POST["deceased"];
+    $artistThumbnail = file_get_contents($_FILES["thumbnail"]["tmp_name"]);
+    $artistImage = file_get_contents($_FILES["image"]["tmp_name"]);
+    $nationalityId = $_POST["nationality"];
+
+    $artistData = [
+        "artistName" => $artistName,
+        "artistLifespan" => "$artistBirth-$artistDeceased",
+        "artistThumbnail" => $artistThumbnail,
+        "artistImage" => $artistImage,
+        "nationalityId" => $nationalityId,
+    ];
+
+    $artistId = $obj->add($artistData);
+
+    if (!empty($artistId)) {
+        $artist = $obj->detailsId($artistId);
+
+        // image must be base64_encoded before json_encoded
+        if ($artist["artistImage"]) {
+            $artist["artistImage"] = base64_encode($artist["artistImage"]);
+        }
+
+        // thumbnail must be base64_encoded before json_encoded
+        if ($artist["artistThumbnail"]) {
+            $artist["artistThumbnail"] = base64_encode($artist["artistThumbnail"]);
+        }
+
+        echo json_encode($artist);
+        exit();
+    }
+}
+
 
 // artistName action
 if ($action == "artistName") {
