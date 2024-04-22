@@ -61,7 +61,7 @@ $(document).ready(function () {
 		e.preventDefault();
 
         // popup to confirm deletion
-        if (confirm("Delete this Artist?")) {
+        if (confirm("Delete this artist?")) {
             $.ajax({
                 url: "request/artist_obj.php",
                 type: "GET",

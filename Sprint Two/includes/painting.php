@@ -141,7 +141,9 @@ class painting extends config
             $stmt = $this->conn->prepare($sql);
             $this->conn->beginTransaction();
             $stmt->execute($data); // bindParams
+            $lastInsertedId = $this->conn->lastInsertId();
             $this->conn->commit();
+            return $lastInsertedId;
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             $this->conn->rollback();

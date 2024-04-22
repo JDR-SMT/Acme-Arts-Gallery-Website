@@ -26,8 +26,8 @@ class artist extends config
 
         return $results;
     }
-	
-	// fetch artist by artist id
+
+    // fetch artist by artist id
     public function detailsName($id)
     {
         // select all from artists with nationalityName
@@ -65,6 +65,37 @@ class artist extends config
         }
 
         return $result;
+    }
+
+    // insert a new artist
+    public function add($data)
+    {
+        if (!empty($data)) {
+            // create two arrays
+            $fields = $placeholders = [];
+
+            // set field array with column names, set placeholder array with column values
+            foreach ($data as $field => $value) {
+                $fields[] = $field;
+                $placeholders[] = ":{$field}";
+            }
+        }
+
+        // insert artists with passed column names and column values
+        $sql = "INSERT artists (" . implode(',', $fields) . ") 
+                VALUES (" . implode(',', $placeholders) . ")";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $this->conn->beginTransaction();
+            $stmt->execute($data); // bindParams
+            $lastInsertedId = $this->conn->lastInsertId();
+            $this->conn->commit();
+            return $lastInsertedId;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+            $this->conn->rollback();
+        }
     }
 
     // update an existing artist by artist id
@@ -121,106 +152,78 @@ class artist extends config
 
         return $results;
     }
-        // fetch artist by nationality id
-        public function filterNationality($id)
-        {
-            // select all from artists with mediumName and styleName
-            $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
-            FROM artists a
-            INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
-            WHERE n.nationalityId = :nationalityId";
-    
-            try {
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute([":nationalityId" => $id]); // bindParam
-                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo "ERROR: " . $e->getMessage();
-            }
-    
-            return $results;
+
+    // fetch artist by nationality id
+    public function filterNationality($id)
+    {
+        // select all from artists with mediumName and styleName
+        $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
+        FROM artists a
+        INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
+        WHERE n.nationalityId = :nationalityId";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":nationalityId" => $id]); // bindParam
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
 
-        // search for an existing artist by period
-        public function filterPeriod($period)
-        {
+        return $results;
+    }
+
+    // search for an existing artist by period
+    public function filterPeriod($period)
+    {
         // select all bar artistThumbnail from artists by period
-            $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
-            FROM artists a
-            INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
-            WHERE SUBSTRING(a.artistLifespan, 1, 2) = :artistLifespan";
-            
+        $sql = "SELECT a.artistId, a.artistThumbnail, a.artistName, a.artistLifespan, n.nationalityName
+        FROM artists a
+        INNER JOIN nationalities n ON a.nationalityId = n.nationalityId
+        WHERE SUBSTRING(a.artistLifespan, 1, 2) = :artistLifespan";
+
         try {
             $stmt = $this->conn->prepare($sql);
             $stmt->execute([":artistLifespan" => $period]); // bindParam
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo "ERROR: " . $e->getMessage();
-            }
-            
-          return $results;
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
-		
-		// Andrew Millett
-		// delete an existing artist by artist id
-		public function delete($id)
-		{
-			$sql = "DELETE FROM artist
-					WHERE artistId = :artistId";
 
-			try {
-				$stmt = $this->conn->prepare($sql);
-				$stmt->execute([":artistId" => $id]); // bindParam
-			} catch (PDOException $e) {
-				echo "ERROR: " . $e->getMessage();
-			}
-		}
+        return $results;
+    }
 
-        // insert a new artist
-    public function add($data)
+    // Andrew Millett
+    // delete an existing artist by artist id
+    public function delete($id)
     {
-        if (!empty($data)) {
-            // create two arrays
-            $fields = $placeholders = [];
-
-            // set field array with column names, set placeholder array with column values
-            foreach ($data as $field => $value) {
-                $fields[] = $field;
-                $placeholders[] = ":{$field}";
-            }
-        }
-
-        // insert artists with passed column names and column values
-        $sql = "INSERT artists (" . implode(',', $fields) . ") 
-                VALUES (" . implode(',', $placeholders) . ")";
+        $sql = "DELETE FROM artist
+                WHERE artistId = :artistId";
 
         try {
             $stmt = $this->conn->prepare($sql);
-            $this->conn->beginTransaction();
-            $stmt->execute($data); // bindParams
-            $this->conn->commit();
+            $stmt->execute([":artistId" => $id]); // bindParam
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
-            $this->conn->rollback();
         }
     }
 
-        // search for an existing artist by artist name
-        public function search($name)
-        {
-            // select all bar artistThumbnail from artists
-            $sql = "SELECT a.artistId
-            FROM artists a
-            WHERE a.artistName = :artistName";
-    
-            try {
-                $stmt = $this->conn->prepare($sql);
-                $stmt->execute([":artistName" => $name]); // bindParam
-                $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                echo "ERROR: " . $e->getMessage();
-            }
-    
-            return $result;
+    // search for an existing artist by artist name
+    public function search($name)
+    {
+        // select all bar artistThumbnail from artists
+        $sql = "SELECT a.artistId
+                FROM artists a
+                WHERE a.artistName = :artistName";
+
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":artistName" => $name]); // bindParam
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
+
+        return $result;
+    }
 }
