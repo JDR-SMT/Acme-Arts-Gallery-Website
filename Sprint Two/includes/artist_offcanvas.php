@@ -1,11 +1,11 @@
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Ben Stafford
-	Date: 17/04/2024-->
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+	Date: 22/04/2024-->
 
 <div id="offcanvas-filter" class="offcanvas offcanvas-end" tabindex="-1">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title">Filter</h5>
-        <a id="clear-all-link" href="paintings.php">Clear All</a>
+        <a id="clear-all-link" href="artists.php">Clear All</a>
         <button class="btn-close" type="button" data-bs-dismiss="offcanvas"></button>
     </div>
 
