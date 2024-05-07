@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Benjamin Stafford / Jack Dylan Rendle
-	Date: 02/04/2024-->
+	Team Member: Benjamin Stafford, Jack Dylan Rendle
+	Date: 07/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -39,6 +39,11 @@
                     <br>leave having gained inspiration during your visit.
                 </div>
             </div>
+        </div>
+        <div id="admin-container">
+            <a class="btn button-icon-md" href="users.php">
+                <img class="icon-md" src="img/admin.png">
+            </a>
         </div>
     </div>
 

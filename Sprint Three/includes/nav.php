@@ -1,6 +1,6 @@
 <!--Team Name: MRS Tech
 	Team Member: Jack Dylan Rendle
-	Date: 17/04/2024-->
+	Date: 07/05/2024-->
 
 <header class="navbar navbar-expand-sm">
     <div class="container-fluid">
@@ -22,6 +22,11 @@
             <li class="nav-item">
                 <a class="nav-link" href="artists.php">
                     <img class="icon-md" src="img/artists.png">
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="users_newsletter.php">
+                    <img class="icon-md" src="img/newsletter.png">
                 </a>
             </li>
         </ul>

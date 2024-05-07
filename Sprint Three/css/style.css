@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
 	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
-	Date: 17/04/2024*/
+	Date: 07/05/2024*/
 
 /* #region Font */
 @font-face {
@@ -158,6 +158,17 @@ a.button-icon-md {
   list-style-type: none;
   font-weight: 600;
 }
+
+#admin-container {
+  width: fit-content;
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+
+#admin-container > .btn {
+  width: fit-content;
+}
 /* #endregion Index */
 
 /* #region Gallery */
@@ -175,14 +186,14 @@ a.button-icon-md {
   margin-left: auto;
   align-self: center;
 }
+/* #endregion Gallery */
 
+/* #region Table */
 #three-button-container {
   column-count: 3;
   column-gap: 0px;
 }
-/* #endregion Gallery */
 
-/* #region Table */
 td {
   vertical-align: middle;
   text-transform: uppercase;
@@ -365,10 +376,6 @@ select {
   padding: 6px 15px;
   justify-content: space-between;
 }
-
-#update-button:hover {
-  border-radius: 0px;
-}
 /* #endregion Update */
 
 /* #region Add */
@@ -377,10 +384,6 @@ select {
   margin: auto 0px 0px auto;
   padding: 6px 20px;
   justify-content: space-between;
-}
-
-#add-button:hover {
-  border-radius: 0px;
 }
 /* #endregion Add */
 
@@ -394,57 +397,95 @@ select {
 }
 /* #endregion Search */
 
+/* #region Users */
+#users-title {
+  grid-column-start: 2;
+}
+/* #endregion Users */
+
+/* #region Newsletter */
+#form-newsletter .form-label {
+  width: auto;
+}
+
+.form-check-input {
+margin: auto 10px auto auto;
+}
+
+.form-check-label {
+  margin: auto 0px auto auto;
+}
+
+#subscribe-button {
+  width: 165px;
+  margin: auto 0px 15px auto;
+  padding: 6px 20px;
+  justify-content: space-between;
+}
+
+#remove-button {
+  width: 225px;
+  margin: auto 0px 0px auto;
+  padding: 6px 20px;
+  justify-content: space-between;
+}
+/* #endregion Newsletter */
+
 /* #region Mobile */
 @media only screen and (max-width: 450px) {
+  .navbar-brand {
+    margin-right: 12px;
+  }
+
+  #logo {
+    margin-right: 10px;
+  }
+
   .navbar-nav {
-      display: flex;
-      flex-direction: row;
-    }
+    display: flex;
+    flex-direction: row;
+  }
 
-    .navbar-nav > li:first-child {
-      margin-left: auto;
-    }
+  .navbar-nav > li {
+    padding-right: 0px;
+    padding-left: 2px;
+  }
 
-    .navbar-nav > li:last-child {
-      margin-right: 0px;
-      padding-right: 0px;
-    }
-	
-    /* Andrew Millett */
-    /* Force table to display as a block */
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-    
-    /* Hide table headers */
-    thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
+  /* Andrew Millett */
+  /* Force table to display as a block */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  /* Hide table headers */
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
 
-    /* Row headers */
-    td:nth-of-type(3):before { content: "TITLE:"; }
-    td:nth-of-type(4):before { content: "YEAR:"; }
-    td:nth-of-type(5):before { content: "ARTIST:"; }
-    td:nth-of-type(6):before { content: "MEDIUM:"; }
-    td:nth-of-type(7):before { content: "STYLE:"; }
-    
-    tr { 
-      padding-bottom: 20px;
-    }
-    
-    /* Padding between row headers and row values */
-    td:before {
-      padding-right: 10px;
-    }
+  /* Row headers */
+  td:nth-of-type(3):before { content: "TITLE:"; }
+  td:nth-of-type(4):before { content: "YEAR:"; }
+  td:nth-of-type(5):before { content: "ARTIST:"; }
+  td:nth-of-type(6):before { content: "MEDIUM:"; }
+  td:nth-of-type(7):before { content: "STYLE:"; }
+  
+  tr { 
+    padding-bottom: 20px;
+  }
+  
+  /* Padding between row headers and row values */
+  td:before {
+    padding-right: 10px;
+  }
 
-    #three-button-container {
-      width: fit-content;
-    }
+  #three-button-container {
+    width: fit-content;
+  }
 
-    #three-button-container a {
-      margin-right: 13px;
-    }
+  #three-button-container a {
+    margin-right: 13px;
+  }
 }
 /* #endregion Mobile */
