@@ -29,11 +29,11 @@
                     <input class="form-control form-control-sm" type="text" id="input-email" name="email" required>
                 </div>
                 <div class="input-group">
-                    <input class="form-check-input" type="checkbox" id="input-breaking" name="breaking" required>
+                    <input class="form-check-input" type="checkbox" id="input-breaking" name="breaking">
                     <label class="form-check-label" for="input-breaking">BREAKING NEWSLETTER</label>
                 </div>
                 <div class="input-group">
-                    <input class="form-check-input" type="checkbox" id="input-monthly" name="monthly" required>
+                    <input class="form-check-input" type="checkbox" id="input-monthly" name="monthly">
                     <label class="form-check-label" for="input-monthly">MONTHLY NEWSLETTER</label>
                 </div>
                 <div class="input-group">
