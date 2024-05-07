@@ -1,0 +1,450 @@
+/*Team Name: MRS Tech
+	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
+	Date: 17/04/2024*/
+
+/* #region Font */
+@font-face {
+  font-family: "Cheque";
+  src: url("../font/Cheque-Regular.eot");
+  src: url("../font/Cheque-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../font/Cheque-Regular.woff2") format("woff2"),
+    url("../font/Cheque-Regular.woff") format("woff"),
+    url("../font/Cheque-Regular.ttf") format("truetype"),
+    url("../font/Cheque-Regular.svg#Cheque") format("svg");
+}
+/* #endregion Font */
+
+/* #region Title */
+.title-container {
+  height: 80px;
+  max-width: 500px;
+  margin: 20px auto 30px auto;
+  align-content: center;
+  border-bottom: 2px solid #dc8b9f;
+}
+
+.title {
+  font-family: "Cheque";
+  font-size: 30px;
+  text-align: center;
+}
+/* #endregion Title */
+
+/* #region Icon */
+.icon-xs {
+  height: 15px;
+  width: 15px;
+}
+
+.icon-sm {
+  height: 20px;
+  width: 20px;
+}
+
+.icon-md {
+  height: 25px;
+  width: 25px;
+}
+/* #endregion Icon */
+
+/* #region Button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #dc8b9f;
+  border-radius: 0px;
+}
+
+.btn:hover, a:hover {
+  background-color: #dc8b9f;
+  border-radius: 6px;
+}
+
+.button-text {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+a.button-icon-sm {
+  height: 26px;
+  width: 26px;
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+}
+
+a.button-icon-md {
+  padding: 5px;
+  border: none;
+  border-radius: 6px;
+}
+/* #endregion Button */
+
+/* #region Nav */
+.navbar {
+  border-bottom: 2px solid #dc8b9f;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+}
+
+.navbar-nav {
+  margin-right: 0px;
+  margin-left: auto;
+}
+
+.navbar-nav > li {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.nav-link {
+  padding: 5px !important;
+}
+
+.navbar-toggler {
+  border: 2px solid #dc8b9f;
+}
+
+.navbar-toggler:hover {
+  background-color: #dc8b9f;
+}
+
+.navbar-toggler:active {
+  border: none;
+}
+/* #endregion Nav */
+
+/* #region Index */
+#background-container {
+  height: 80vh;
+  background-image: url(../img/background.png);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+}
+
+#background-container .container-lg {
+  padding-top: 20px;
+}
+
+#index-container {
+  max-width: 600px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: white;
+  border: 2px solid #dc8b9f;
+}
+
+#index-container .title-container {
+  margin-top: 0px;
+}
+
+#header {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#index-container ul {
+  margin: 20px auto;
+  list-style-type: none;
+  font-weight: 600;
+}
+/* #endregion Index */
+
+/* #region Gallery */
+#gallery-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#add-container {
+  margin-right: auto;
+  align-self: center;
+}
+
+#filter-container {
+  margin-left: auto;
+  align-self: center;
+}
+
+#three-button-container {
+  column-count: 3;
+  column-gap: 0px;
+}
+/* #endregion Gallery */
+
+/* #region Table */
+td {
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+/* #endregion Table */
+
+/* #region Offcanvas */
+.offcanvas {
+  width: 350px !important;
+}
+
+.offcanvas-header {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+
+.offcanvas-title {
+  margin-right: auto;
+}
+
+#clear-all-link {
+  margin-right: 20px;
+  margin-left: auto;
+  color: black;
+  opacity: 0.75;
+}
+
+#clear-all-link:hover {
+  background: none;
+  opacity: 1;
+}
+
+.btn-close {
+  margin-left: auto;
+}
+
+.offcanvas-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#apply-button {
+  width: 125px;
+  margin: auto auto 0px;
+  padding: 6px 20px;
+  justify-content: space-between;
+}
+
+#apply-button:hover {
+  border-radius: 0px;
+}
+
+/* Ben Stafford */
+.accordion-body .btn {
+  border: none;
+  width: auto;
+  justify-content: left;
+}
+
+.accordion-body .btn:hover {
+  border: none;
+  width: auto;
+  justify-content: left;
+  color: #dc8b9f;
+}
+
+.accordion-body .btn-check:checked + .btn {
+  border: none;
+  width: auto;
+  justify-content: left;
+  color: #dc8b9f;
+}
+
+div.accordion-item {
+  border: none;
+}
+
+label.btn {
+  padding-left: 0px;
+}
+
+/* Jack Dylan Rendle */
+/* Accordion */
+.accordion-header {
+  border-bottom: 2px solid #dc8b9f;
+}
+
+.accordion-button,
+.accordion-body {
+  padding: 5px auto 5px 0px;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: white;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+/* #endregion Offcanvas */
+
+/* #region Details */
+#details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#table-container {
+  padding-left: 40px;
+  align-self: center;
+}
+
+#table-container th {
+  text-align: right;
+}
+
+#two-button-container {
+  display: flex;
+  justify-content: end;
+}
+/* #endregion Details */
+
+/* #region Form */
+.input-group {
+  margin: 0px auto 15px;
+}
+
+.form-label {
+  width: 110px;
+  padding-right: 10px;
+  align-content: center;
+  text-align: right;
+  font-weight: 600;
+}
+
+.input-group-text {
+  height: 32px;
+}
+
+input,
+select {
+  text-transform: uppercase;
+}
+
+.input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(
+    .form-floating
+  ),
+.input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+    .valid-feedback
+  ):not(.invalid-tooltip):not(.invalid-feedback) {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+/* #endregion Form */
+
+/* #region Update */
+#update-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#form-container {
+  margin: 0px;
+  padding-left: 40px;
+}
+
+#thumbnail {
+  margin-top: 10px;
+}
+
+#update-button {
+  width: 135px;
+  margin: auto 0px 0px auto;
+  padding: 6px 15px;
+  justify-content: space-between;
+}
+
+#update-button:hover {
+  border-radius: 0px;
+}
+/* #endregion Update */
+
+/* #region Add */
+#add-button {
+  width: 115px;
+  margin: auto 0px 0px auto;
+  padding: 6px 20px;
+  justify-content: space-between;
+}
+
+#add-button:hover {
+  border-radius: 0px;
+}
+/* #endregion Add */
+
+/* #region Search */
+#search-container {
+  border-bottom: 2px solid #dc8b9f;
+}
+
+#search-button {
+  border: 2px solid #dc8b9f;
+}
+/* #endregion Search */
+
+/* #region Mobile */
+@media only screen and (max-width: 450px) {
+  .navbar-nav {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .navbar-nav > li:first-child {
+      margin-left: auto;
+    }
+
+    .navbar-nav > li:last-child {
+      margin-right: 0px;
+      padding-right: 0px;
+    }
+	
+    /* Andrew Millett */
+    /* Force table to display as a block */
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    
+    /* Hide table headers */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    /* Row headers */
+    td:nth-of-type(3):before { content: "TITLE:"; }
+    td:nth-of-type(4):before { content: "YEAR:"; }
+    td:nth-of-type(5):before { content: "ARTIST:"; }
+    td:nth-of-type(6):before { content: "MEDIUM:"; }
+    td:nth-of-type(7):before { content: "STYLE:"; }
+    
+    tr { 
+      padding-bottom: 20px;
+    }
+    
+    /* Padding between row headers and row values */
+    td:before {
+      padding-right: 10px;
+    }
+
+    #three-button-container {
+      width: fit-content;
+    }
+
+    #three-button-container a {
+      margin-right: 13px;
+    }
+}
+/* #endregion Mobile */
