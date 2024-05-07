@@ -16,8 +16,8 @@
                 <div class="input-group">
                     <input class="form-control" type="text" id="title" name="title" placeholder="Search By Name">
                     <button id="search-button" class="btn" type="submit">
-					<img class="icon-sm" src="img/search.png">
-					</button>
+                        <img class="icon-sm" src="img/search.png">
+                    </button>
                 </div>
             </form>
         </div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </form>
-        <a id="apply-button" class="btn" onClick="javascript:document.getElementById('filter').submit()">
+        <a id="apply-button" class="btn input-button" onClick="javascript:document.getElementById('filter').submit()">
             <div class=" button-text">
                 APPLY
             </div>

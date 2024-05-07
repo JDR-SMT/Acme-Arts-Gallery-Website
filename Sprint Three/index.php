@@ -41,7 +41,7 @@
             </div>
         </div>
         <div id="admin-container">
-            <a class="btn button-icon-md" href="users.php">
+            <a class="btn button-icon-md" href="admin.php">
                 <img class="icon-md" src="img/admin.png">
             </a>
         </div>

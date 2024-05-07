@@ -39,11 +39,11 @@
                 <div class="input-group">
                     <input id="input-id" type="hidden" name="id">
                     <input type="hidden" name="action" value="subscribe">
-                    <button id="subscribe-button" class="btn" type="submit">
+                    <button id="subscribe-button" class="btn input-button" type="submit">
                         <div class="button-text">SUBSCRIBE</div>
                         <img class="icon-md" src="img/arrow.png">
                     </button>
-                    <button id="remove-button" class="btn" type="submit">
+                    <button id="remove-button" class="btn input-button" type="submit">
                         <div class="button-text">REMOVE ACCOUNT</div>
                         <img class="icon-md" src="img/arrow.png">
                     </button>

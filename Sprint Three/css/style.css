@@ -79,6 +79,11 @@ a.button-icon-md {
   border: none;
   border-radius: 6px;
 }
+
+.input-button {
+  padding: 6px 20px;
+  justify-content: space-between;
+}
 /* #endregion Button */
 
 /* #region Nav */
@@ -238,8 +243,6 @@ td {
 #apply-button {
   width: 125px;
   margin: auto auto 0px;
-  padding: 6px 20px;
-  justify-content: space-between;
 }
 
 #apply-button:hover {
@@ -373,8 +376,6 @@ select {
 #update-button {
   width: 135px;
   margin: auto 0px 0px auto;
-  padding: 6px 15px;
-  justify-content: space-between;
 }
 /* #endregion Update */
 
@@ -382,8 +383,6 @@ select {
 #add-button {
   width: 115px;
   margin: auto 0px 0px auto;
-  padding: 6px 20px;
-  justify-content: space-between;
 }
 /* #endregion Add */
 
@@ -396,6 +395,17 @@ select {
   border: 2px solid #dc8b9f;
 }
 /* #endregion Search */
+
+/* #region Admin */
+#form-login .form-label {
+  width: auto;
+}
+
+#login-button {
+  width: 130px;
+  margin: auto 0px 20px auto;
+}
+/* #region Admin */
 
 /* #region Users */
 #users-title {
@@ -419,15 +429,11 @@ margin: auto 10px auto auto;
 #subscribe-button {
   width: 165px;
   margin: auto 0px 15px auto;
-  padding: 6px 20px;
-  justify-content: space-between;
 }
 
 #remove-button {
   width: 225px;
   margin: auto 0px 0px auto;
-  padding: 6px 20px;
-  justify-content: space-between;
 }
 /* #endregion Newsletter */
 

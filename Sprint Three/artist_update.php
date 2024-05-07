@@ -59,7 +59,7 @@
                     <div class="input-group">
                         <input id="input-id" type="hidden" name="id">
                         <input type="hidden" name="action" value="update">
-                        <button id="update-button" class="btn" type="submit">
+                        <button id="update-button" class="btn input-button" type="submit">
                             <div class="button-text">UPDATE</div>
                             <img class="icon-md" src="img/arrow.png">
                         </button>
