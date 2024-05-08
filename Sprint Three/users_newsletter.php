@@ -25,7 +25,7 @@
                     <input class="form-control form-control-sm" type="text" id="input-name" name="name" required>
                 </div>
                 <div class="input-group">
-                    <label class="form-label" for="input-name">EMAIL</label>
+                    <label class="form-label" for="input-email">EMAIL</label>
                     <input class="form-control form-control-sm" type="text" id="input-email" name="email" required>
                 </div>
                 <div class="input-group">
@@ -54,7 +54,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- <script src="js/users.js"></script> -->
+    <script src="js/users.js"></script>
 </body>
 
 </html>
