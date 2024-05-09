@@ -1,7 +1,7 @@
 <?php
 //  Team Name: MRS Tech
-// 	Team Member: Benjamin Stafford
-// 	Date: 22/04/2024
+// 	Team Member: Benjamin Stafford, Andrew Millett
+// 	Date: 09/05/2024
 
 $action = $_REQUEST["action"];
 
@@ -18,8 +18,8 @@ if ($action == "users") {
     exit();
 }
 
-// add action
-if ($action == "add" && !empty($_POST)) {
+// subscribe action
+if ($action == "subscribe" && !empty($_POST)) {
     $userName = $_POST["name"];
     $userEmail = $_POST["email"];
     $userBreakingNews = $_POST["breaking"];
@@ -36,7 +36,7 @@ if ($action == "add" && !empty($_POST)) {
     ];
 
     $userId = $obj->add($userData);
-    echo json_encode($userId);
+    echo json_encode($userData);
     exit();
 }
 

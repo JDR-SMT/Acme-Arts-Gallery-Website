@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
 	Team Member: Ben Stafford
-	Date: 09/04/2024*/
+	Date: 09/05/2024*/
 
     $(document).ready(function () {
         // Subscribe button click event
@@ -39,6 +39,7 @@
                 data: formData,
                 processData: false,
                 contentType: false,
+				
                 success: function (response) {
                     console.log(response);
                     if (response) {
