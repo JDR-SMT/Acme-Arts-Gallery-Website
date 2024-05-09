@@ -22,26 +22,27 @@ if ($action == "users") {
 if ($action == "add" && !empty($_POST)) {
     $userName = $_POST["name"];
     $userEmail = $_POST["email"];
-    $userBreakingNews = isset($_POST["breaking"]) ? 1 : 0;
-    $userMonthlyNews = isset($_POST["monthly"]) ? 1 : 0;
+    $userBreakingNews = $_POST["breaking"];
+    $userMonthlyNews = $_POST["monthly"];
+    $userActive = $_POST["active"];
+      
 
     $userData = [
         "userName" => $userName,
         "userEmail" => $userEmail,
         "userBreakingNews" => $userBreakingNews,
         "userMonthlyNews" => $userMonthlyNews,
-        "userActive" => 1,
+        "userActive" => $userActive
     ];
 
     $userId = $obj->add($userData);
-
     echo json_encode($userId);
     exit();
 }
 
 // delete action
 if ($action == "delete") {
-    $userEmail = (!empty($_GET["userEmail"])) ? $_GET["ususerEmailerId"] : "";
+    $userEmail = (!empty($_GET["userEmail"])) ? $_GET["userEmail"] : "";
 
     if (!empty($userEmail)) {
         $deleted = $obj->delete($userEmail);

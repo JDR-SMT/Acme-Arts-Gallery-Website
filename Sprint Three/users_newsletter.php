@@ -37,8 +37,6 @@
                     <label class="form-check-label" for="input-monthly">MONTHLY NEWSLETTER</label>
                 </div>
                 <div class="input-group">
-                    <input id="input-id" type="hidden" name="id">
-                    <input type="hidden" name="action" value="subscribe">
                     <button id="subscribe-button" class="btn input-button" type="submit">
                         <div class="button-text">SUBSCRIBE</div>
                         <img class="icon-md" src="img/arrow.png">

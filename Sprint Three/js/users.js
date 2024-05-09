@@ -23,6 +23,15 @@
     
         function subscribe() {
             var formData = new FormData($("#form-newsletter")[0]);
+
+            var breakingChecked = $("#input-breaking").is(":checked") ? 1 : 0;
+            var monthlyChecked = $("#input-monthly").is(":checked") ? 1 : 0;
+
+            formData.set("breaking", breakingChecked);
+            formData.set("monthly", monthlyChecked);
+            formData.set("active", 1)
+
+
             $.ajax({
                 url: "request/user_obj.php",
                 type: "POST",
@@ -38,6 +47,9 @@
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
+                    for (var pair of formData.entries()) {
+                        console.log(pair[0]+ ', ' + pair[1]); 
+                    }
                     console.log(xhr.status);
                     console.log(thrownError);
                 }

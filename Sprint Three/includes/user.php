@@ -60,24 +60,10 @@ class user extends config
     // delete an existing user by user id
     public function delete($userId)
     {
-        try {
-			// Check if there are any associated records in the paintings table
-			$check_sql = "SELECT COUNT(*) FROM users WHERE userId = :userId";
-			$check_stmt = $this->conn->prepare($check_sql);
-			$check_stmt->execute([":userId" => $userId]); // bindParam
-			$user_count = $check_stmt->fetchColumn();
-			
-			if ($user_count > 0){
-				// If there are associated users, handle it appropriately
-				$user_delete_sql = "DELETE FROM users WHERE userId = :userId";
-				$user_delete_stmt = $this->conn->prepare($user_delete_sql);
-				$user_delete_stmt->execute([":userId" => $userId]); // bindParam
-			}
-			
+        try {			
 			$user_delete_sql = "DELETE FROM users WHERE userId = :userId";
 			$user_delete_stmt = $this->conn->prepare($user_delete_sql);
 			$user_delete_stmt->execute([":userId" => $userId]); // bindParam
-			
 		} catch (PDOException $e) {
 			echo "ERROR: " . $e->getMessage();
 		}
@@ -90,8 +76,8 @@ class user extends config
         // select all from users
         $sql = "SELECT u.userId, u.userName, u.userEmail, u.userBreakingNews, u.userActive
         FROM users u
-        ORDER BY u.userId
-        WHERE u.userName = :userName";
+        WHERE u.userName = :userName
+        ORDER BY u.userId";
 
         try {
             $stmt = $this->conn->prepare($sql);
