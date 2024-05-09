@@ -401,6 +401,10 @@ select {
   width: auto;
 }
 
+.input-group-username input[type="text"]{
+	text-transform: none; /* Reset text-transform for username input */
+}
+
 #login-button {
   width: 130px;
   margin: auto 0px 20px auto;

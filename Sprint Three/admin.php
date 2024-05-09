@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
-	Date: 07/05/2024-->
+	Team Member: Jack Dylan Rendle, Andrew Millett
+	Date: 09/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
 
         <div class="container" style="max-width: 400px;">
             <form id="form-login" method="POST" enctype="multipart/form-data">
-                <div class="input-group">
+                <div class="input-group input-group-username">
                     <label class="form-label" for="input-username">USERNAME</label>
                     <input class="form-control form-control-sm" type="text" id="input-username" name="username" required>
                 </div>
@@ -42,7 +42,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- <script src="js/admin.js"></script> -->
+    <script src="js/admin.js"></script>
 </body>
 
 </html>
