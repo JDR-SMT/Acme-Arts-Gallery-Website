@@ -47,10 +47,8 @@ class user extends config
         try {
             $stmt = $this->conn->prepare($sql);
             $this->conn->beginTransaction();
-            $stmt->execute($data); // bindParams
-            $lastInsertedId = $this->conn->lastInsertId();
-            $this->conn->commit();
-            return $lastInsertedId;
+            $stmt->execute($data); // bindParams            
+            $this->conn->commit();            
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             $this->conn->rollback();

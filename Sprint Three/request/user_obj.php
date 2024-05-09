@@ -35,8 +35,7 @@ if ($action == "subscribe" && !empty($_POST)) {
         "userActive" => $userActive
     ];
 
-    $userId = $obj->add($userData);
-    echo json_encode($userData);
+    $obj->add($userData);    
     exit();
 }
 
