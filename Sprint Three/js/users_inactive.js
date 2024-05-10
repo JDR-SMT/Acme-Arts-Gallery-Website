@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle, Andrew Millett, Ben Stafford
-	Date: 04/04/2024*/
+	Team Member: Andrew Millett, Ben Stafford
+	Date: 10/05/2024*/
 
 $(document).ready(function () {
     // populate paintings
@@ -8,7 +8,7 @@ $(document).ready(function () {
         url: "request/user_obj.php",
         type: "GET",
         dataType: "json",
-        data: {action: "inactiveUsers" },
+        data: { action: "inactiveUsers" },
         
         success: function(users) { 
             console.log(users);
@@ -58,11 +58,10 @@ $(document).ready(function () {
 // delete user
 $(document).on("click", "#button-delete", function (e) {
     e.preventDefault();
-
     var id = $(this).data("id");
     
     // popup to confirm deletion
-    if (confirm("Delete this User?")) {
+    if (confirm("Delete this user?")) {
         $.ajax({
             url: "request/user_obj.php",
             type: "GET",

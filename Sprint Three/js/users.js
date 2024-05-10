@@ -1,10 +1,10 @@
 /*Team Name: MRS Tech
 	Team Member: Ben Stafford
-	Date: 09/05/2024*/
+	Date: 10/05/2024*/
 
 $(document).ready(function () {
-    $("#subscribe-button").click(function(event) {
-        event.preventDefault();
+    $("#subscribe-button").click(function(e) {
+        e.preventDefault();
 
         $.ajax({
             url: "request/user_obj.php",
@@ -29,8 +29,8 @@ $(document).ready(function () {
         });
     });
 
-    $("#remove-button").click(function(event) {
-        event.preventDefault();
+    $("#remove-button").click(function(e) {
+        e.preventDefault();
         var email = $("#input-email").val();
 
         $.ajax({

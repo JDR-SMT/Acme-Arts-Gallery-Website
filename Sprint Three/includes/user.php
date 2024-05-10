@@ -1,7 +1,7 @@
 <?php
 //  Team Name: MRS Tech
 // 	Team Member: Benjamin Stafford
-// 	Date: 8/05/2024
+// 	Date: 10/05/2024
 
 include 'config.php';
 
@@ -11,11 +11,10 @@ class user extends config
     public function users()
     {
         $sql = "SELECT userId, userName, userEmail, 
-            CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
-            CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
-            FROM users
-            WHERE userActive = 1
-            ORDER BY userId";
+                CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
+                CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
+                FROM users
+                ORDER BY userId";
 
         try {
             $stmt = $this->conn->prepare($sql);
