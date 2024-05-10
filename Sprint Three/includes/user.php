@@ -7,13 +7,40 @@ include 'config.php';
 
 class user extends config
 {
-    // fetch all users
-    public function users()
+// fetch all users
+public function users()
+{
+    $sql = "SELECT userId, userName, userEmail, 
+            CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
+            CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
+            FROM users
+            WHERE userActive = 1
+            ORDER BY userId";
+
+
+    try {
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        echo "ERROR: " . $e->getMessage();
+    }
+
+    return $results;
+}
+
+
+    // fetch all inactive users
+    public function inactiveUsers()
     {
-        // select all bar artistImage from artists
-        $sql = "SELECT u.userId, u.userName, u.userEmail, u.userBreakingNews, u.userActive
-                FROM users u
-                ORDER BY u.userId";
+        // select all inactive users
+        $sql = "SELECT userId, userName, userEmail, 
+        CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
+        CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
+        FROM users
+        WHERE userActive = 0
+        ORDER BY userId";
+
 
         try {
             $stmt = $this->conn->prepare($sql);

@@ -13,7 +13,14 @@ if (!empty($action)) {
 
 // users action
 if ($action == "users") {
-    $user = $obj->users();
+    $users = $obj->users();
+    echo json_encode($users);
+    exit();
+}
+
+// inactiveUsers action
+if ($action == "inactiveUsers") {
+    $users = $obj->inactiveUsers();
     echo json_encode($users);
     exit();
 }
@@ -25,8 +32,6 @@ if ($action == "subscribe" && !empty($_POST)) {
     $userBreakingNews = isset($_POST['breaking']) ? 1 : 0;
     $userMonthlyNews = isset($_POST['monthly']) ? 1 : 0;
     
-      
-
     $userData = [
         "userName" => $userName,
         "userEmail" => $userEmail,
@@ -35,7 +40,8 @@ if ($action == "subscribe" && !empty($_POST)) {
         "userActive" => 1
     ];
 
-    $obj->subscribe($userData);    
+    $obj->subscribe($userData);   
+    echo json_encode("Success");
     exit();
 }
 
@@ -44,19 +50,18 @@ if ($action == "remove") {
     $userEmail = $_POST["email"];
 
     if (!empty($userEmail)) {
-        $user = $obj->remove($userEmail);
+        $obj->remove($userEmail);
+        echo json_encode("Success");
         exit();
     }
 }
 
-
-
-/* // delete action
+// delete action
 if ($action == "delete") {
-    $userEmail = (!empty($_GET["userEmail"])) ? $_GET["userEmail"] : "";
+    $userId = (!empty($_GET["userId"])) ? $_GET["userId"] : "";
 
-    if (!empty($userEmail)) {
-        $deleted = $obj->delete($userEmail);
+    if (!empty($userId)) {
+        $deleted = $obj->delete($userId);
         if ($deleted) {
             $message = ['deleted' => 1];
         } else {
@@ -65,7 +70,7 @@ if ($action == "delete") {
         echo json_encode($message);
         exit();
     }
-} */
+}
 
 // search action
 if ($action == "search") {

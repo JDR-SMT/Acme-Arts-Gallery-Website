@@ -18,7 +18,7 @@ $(document).ready(function() {
         // Check if the entered username and password match the valid ones
         if (inputUsername === validUsername && inputPassword === validPassword) {
             // Redirect the user to the proper page (replace 'proper-page.html' with the actual page URL)
-            window.location.href = 'proper-page.html';
+            window.location.href = 'users.php';
         } else {
             // Display an error message or handle authentication failure as needed
             alert('Invalid username or password');
