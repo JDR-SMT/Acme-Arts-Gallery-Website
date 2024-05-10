@@ -27,7 +27,7 @@ class user extends config
     }
 
     // insert a new user
-    public function add($data)
+    public function subscribe($data)
     {
         if (!empty($data)) {
             // create two arrays
@@ -52,6 +52,18 @@ class user extends config
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             $this->conn->rollback();
+        }
+    }
+
+    // set userActive to 0 by userEmail
+    public function remove($userEmail)
+    {
+        try {
+            $sql = "UPDATE users SET userActive = 0 WHERE userEmail = :userEmail";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":userEmail" => $userEmail]); // bindParam
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
         }
     }
 

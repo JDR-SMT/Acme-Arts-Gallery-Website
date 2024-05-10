@@ -2,44 +2,22 @@
 	Team Member: Ben Stafford
 	Date: 09/05/2024*/
 
-    $(document).ready(function () {
-        // Subscribe button click event
-        $("#subscribe-button").click(function(event) {
-            event.preventDefault();
+$(document).ready(function () {
+    $(document).on("submit", "#form-newsletter", function(event) {
+        event.preventDefault();
 
-            subscribe();
-        });
-    
-        // Remove account button click event
-        $("#remove-button").click(function(event) {
-            event.preventDefault();
+        var buttonId = $(document.activeElement).attr('id');
 
-            var email = $("#input-email").val(); // Get the email from the form
-
-            if (confirm("Remove this account?")) {
-                removeAccount(email);
-            }
-        });
-    
-        function subscribe() {
-            var formData = new FormData($("#form-newsletter")[0]);
-
-            var breakingChecked = $("#input-breaking").is(":checked") ? 1 : 0;
-            var monthlyChecked = $("#input-monthly").is(":checked") ? 1 : 0;
-
-            formData.set("breaking", breakingChecked);
-            formData.set("monthly", monthlyChecked);
-            formData.set("active", 1)
-
-
+        // if subscribe button was pressed
+        if (buttonId === "subscribe-button") {
             $.ajax({
                 url: "request/user_obj.php",
                 type: "POST",
                 dataType: "json",
-                data: formData,
+                data: new FormData(this),
                 processData: false,
                 contentType: false,
-				
+                
                 success: function (response) {
                     console.log(response);
                     if (response) {
@@ -48,17 +26,41 @@
                     }
                 },
                 error: function(xhr, ajaxOptions, thrownError) {
-                    for (var pair of formData.entries()) {
-                        console.log(pair[0]+ ', ' + pair[1]); 
+                    console.log(xhr.status);
+                    console.log(thrownError);
+                }
+            });
+
+            //if remove button was pressed
+        } else if (buttonId === "remove-button") {
+
+            var email = $("#email").val();
+
+            $.ajax({
+                url: "request/user_obj.php",
+                type: "POST",
+                dataType: "json",
+                data: {email: email, action: "remove" },
+                processData: false,
+                contentType: false,
+                
+                success: function (response) {
+                    console.log(response);
+                    if (response) {
+                        alert("Account removed successfully");
+                        window.location.href = `index.php`;
                     }
+                    else
+                    {
+                        alert(response);
+                    }
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
                     console.log(xhr.status);
                     console.log(thrownError);
                 }
             });
         }
-
-        function removeAccount(email) {
-
-        }
     });
+});
     

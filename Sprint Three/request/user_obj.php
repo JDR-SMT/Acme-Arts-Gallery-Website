@@ -22,9 +22,9 @@ if ($action == "users") {
 if ($action == "subscribe" && !empty($_POST)) {
     $userName = $_POST["name"];
     $userEmail = $_POST["email"];
-    $userBreakingNews = $_POST["breaking"];
-    $userMonthlyNews = $_POST["monthly"];
-    $userActive = $_POST["active"];
+    $userBreakingNews = isset($_POST['breaking']) ? 1 : 0;
+    $userMonthlyNews = isset($_POST['monthly']) ? 1 : 0;
+    
       
 
     $userData = [
@@ -32,14 +32,26 @@ if ($action == "subscribe" && !empty($_POST)) {
         "userEmail" => $userEmail,
         "userBreakingNews" => $userBreakingNews,
         "userMonthlyNews" => $userMonthlyNews,
-        "userActive" => $userActive
+        "userActive" => 1
     ];
 
-    $obj->add($userData);    
+    $obj->subscribe($userData);    
     exit();
 }
 
-// delete action
+// remove action
+if ($action == "remove") {
+    $userEmail = $_POST["email"];
+
+    if (!empty($userEmail)) {
+        $user = $obj->remove($userEmail);
+        exit();
+    }
+}
+
+
+
+/* // delete action
 if ($action == "delete") {
     $userEmail = (!empty($_GET["userEmail"])) ? $_GET["userEmail"] : "";
 
@@ -53,7 +65,7 @@ if ($action == "delete") {
         echo json_encode($message);
         exit();
     }
-}
+} */
 
 // search action
 if ($action == "search") {

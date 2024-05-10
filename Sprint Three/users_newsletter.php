@@ -43,6 +43,8 @@
                         <div class="button-text">SUBSCRIBE</div>
                         <img class="icon-md" src="img/arrow.png">
                     </button>
+                </div>
+                <div class="input-group">
                     <button id="remove-button" class="btn input-button" type="submit">
                         <div class="button-text">REMOVE ACCOUNT</div>
                         <img class="icon-md" src="img/arrow.png">
