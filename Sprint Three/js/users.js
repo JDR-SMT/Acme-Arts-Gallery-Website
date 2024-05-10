@@ -5,6 +5,7 @@
 $(document).ready(function () {
     $("#subscribe-button").click(function(event) {
         event.preventDefault();
+
         $.ajax({
             url: "request/user_obj.php",
             type: "POST",
@@ -12,10 +13,12 @@ $(document).ready(function () {
             data: new FormData($("#form-newsletter")[0]),
             processData: false,
             contentType: false,
+
             success: function (response) {
                 console.log(response);
+
                 if (response) {
-                    alert("Subscription successful");
+                    alert("Account has been created.");
                     window.location.href = "index.php";
                 }
             },
@@ -29,15 +32,18 @@ $(document).ready(function () {
     $("#remove-button").click(function(event) {
         event.preventDefault();
         var email = $("#input-email").val();
+
         $.ajax({
             url: "request/user_obj.php",
             type: "POST",
             dataType: "json",
             data: { email: email, action: "remove" },
+
             success: function (response) {
                 console.log(response);
+                
                 if (response) {
-                    alert("Account removed successfully");
+                    alert("Account removal request sent.");
                     window.location.href = "index.php";
                 } else {
                     alert("Error removing account");

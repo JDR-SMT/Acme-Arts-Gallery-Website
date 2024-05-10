@@ -31,7 +31,7 @@ if ($action == "subscribe" && !empty($_POST)) {
     $userEmail = $_POST["email"];
     $userBreakingNews = isset($_POST['breaking']) ? 1 : 0;
     $userMonthlyNews = isset($_POST['monthly']) ? 1 : 0;
-    
+
     $userData = [
         "userName" => $userName,
         "userEmail" => $userEmail,
@@ -40,8 +40,8 @@ if ($action == "subscribe" && !empty($_POST)) {
         "userActive" => 1
     ];
 
-    $obj->subscribe($userData);   
-    echo json_encode("Success");
+    $userId = $obj->subscribe($userData);
+    echo json_encode($userId);
     exit();
 }
 
@@ -50,8 +50,15 @@ if ($action == "remove") {
     $userEmail = $_POST["email"];
 
     if (!empty($userEmail)) {
-        $obj->remove($userEmail);
-        echo json_encode("Success");
+        $remove = $obj->remove($userEmail);
+
+        if ($remove) {
+            $message = ['deleted' => 1];
+        } else {
+            $message = ['deleted' => 0];
+        }
+
+        echo json_encode($message);
         exit();
     }
 }
@@ -62,11 +69,13 @@ if ($action == "delete") {
 
     if (!empty($userId)) {
         $deleted = $obj->delete($userId);
+
         if ($deleted) {
             $message = ['deleted' => 1];
         } else {
             $message = ['deleted' => 0];
         }
+
         echo json_encode($message);
         exit();
     }

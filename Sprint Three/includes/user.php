@@ -7,40 +7,37 @@ include 'config.php';
 
 class user extends config
 {
-// fetch all users
-public function users()
-{
-    $sql = "SELECT userId, userName, userEmail, 
+    // fetch all users
+    public function users()
+    {
+        $sql = "SELECT userId, userName, userEmail, 
             CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
             CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
             FROM users
             WHERE userActive = 1
             ORDER BY userId";
 
+        try {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
 
-    try {
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        echo "ERROR: " . $e->getMessage();
+        return $results;
     }
-
-    return $results;
-}
-
 
     // fetch all inactive users
     public function inactiveUsers()
     {
         // select all inactive users
         $sql = "SELECT userId, userName, userEmail, 
-        CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
-        CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
-        FROM users
-        WHERE userActive = 0
-        ORDER BY userId";
-
+                CASE WHEN userBreakingNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS breakingNews,
+                CASE WHEN userMonthlyNews = 1 THEN 'Subscribed' ELSE 'Not subscribed' END AS monthlyNews
+                FROM users
+                WHERE userActive = 0
+                ORDER BY userId";
 
         try {
             $stmt = $this->conn->prepare($sql);
@@ -75,7 +72,9 @@ public function users()
             $stmt = $this->conn->prepare($sql);
             $this->conn->beginTransaction();
             $stmt->execute($data); // bindParams            
-            $this->conn->commit();            
+            $lastInsertedId = $this->conn->lastInsertId();
+            $this->conn->commit();
+            return $lastInsertedId;
         } catch (PDOException $e) {
             echo "ERROR: " . $e->getMessage();
             $this->conn->rollback();
@@ -97,24 +96,23 @@ public function users()
     // delete an existing user by user id
     public function delete($userId)
     {
-        try {			
-			$user_delete_sql = "DELETE FROM users WHERE userId = :userId";
-			$user_delete_stmt = $this->conn->prepare($user_delete_sql);
-			$user_delete_stmt->execute([":userId" => $userId]); // bindParam
-		} catch (PDOException $e) {
-			echo "ERROR: " . $e->getMessage();
-		}
+        try {
+            $sql = "DELETE FROM users WHERE userId = :userId";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([":userId" => $userId]); // bindParam
+        } catch (PDOException $e) {
+            echo "ERROR: " . $e->getMessage();
+        }
     }
-
 
     // search for an existing user by user name
     public function search($name)
     {
         // select all from users
         $sql = "SELECT u.userId, u.userName, u.userEmail, u.userBreakingNews, u.userActive
-        FROM users u
-        WHERE u.userName = :userName
-        ORDER BY u.userId";
+                FROM users u
+                WHERE u.userName = :userName
+                ORDER BY u.userId";
 
         try {
             $stmt = $this->conn->prepare($sql);
