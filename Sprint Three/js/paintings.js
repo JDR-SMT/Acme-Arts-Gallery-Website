@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
 	Team Member: Jack Dylan Rendle, Andrew Millett, Ben Stafford
-	Date: 04/04/2024*/
+	Date: 12/05/2024*/
 
 $(document).ready(function () {
     var queryString = window.location.search;
@@ -43,16 +43,16 @@ $(document).ready(function () {
                             `<tr>
                                 <td id="three-button-container">
                                     <a class="btn button-icon-sm" href="painting_details.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/details.png">
+                                        <img class="icon-sm" src="img/details.png" alt="Details">
                                     </a>
                                     <a class="btn button-icon-sm" href="painting_update.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/update.png">
+                                        <img class="icon-sm" src="img/update.png" alt="Update">
                                     </a>
                                     <a id="button-delete" class="btn button-icon-sm" data-id="${painting.paintingId}">
-                                        <img class="icon-sm" src="img/delete.png">
+                                        <img class="icon-sm" src="img/delete.png" alt="Delete">
                                     </a>
                                 </td>
-                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" /></td>
+                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" alt="Painting" /></td>
                                 <td>${painting.paintingTitle}</td>
                                 <td>${painting.paintingYear}</td>
                                 <td>${painting.mediumName}</td>
@@ -99,16 +99,16 @@ $(document).ready(function () {
                             `<tr>
                                 <td id="three-button-container">
                                     <a class="btn button-icon-sm" href="painting_details.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/details.png">
+                                        <img class="icon-sm" src="img/details.png" alt="Details">
                                     </a>
                                     <a class="btn button-icon-sm" href="painting_update.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/update.png">
+                                        <img class="icon-sm" src="img/update.png" alt="Update">
                                     </a>
                                     <a id="button-delete" class="btn button-icon-sm" data-id="${painting.paintingId}">
-                                        <img class="icon-sm" src="img/delete.png">
+                                        <img class="icon-sm" src="img/delete.png" alt="Delete">
                                     </a>
                                 </td>
-                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" /></td>
+                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" alt="Painting" /></td>
                                 <td>${painting.paintingTitle}</td>
                                 <td>${painting.paintingYear}</td>
                                 <td>${painting.artistName}</td>
@@ -156,16 +156,16 @@ $(document).ready(function () {
                             `<tr>
                                 <td id="three-button-container">
                                     <a class="btn button-icon-sm" href="painting_details.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/details.png">
+                                        <img class="icon-sm" src="img/details.png" alt="Details">
                                     </a>
                                     <a class="btn button-icon-sm" href="painting_update.php?id=${painting.paintingId}">
-                                        <img class="icon-sm" src="img/update.png">
+                                        <img class="icon-sm" src="img/update.png" alt="Update">
                                     </a>
                                     <a id="button-delete" class="btn button-icon-sm" data-id="${painting.paintingId}">
-                                        <img class="icon-sm" src="img/delete.png">
+                                        <img class="icon-sm" src="img/delete.png" alt="Delete">
                                     </a>
                                 </td>
-                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" /></td>
+                                <td><img src="data:image/png;base64, ${painting.paintingThumbnail}" style="width:100px" alt="Painting" /></td>
                                 <td>${painting.paintingTitle}</td>
                                 <td>${painting.paintingYear}</td>
                                 <td>${painting.artistName}</td>

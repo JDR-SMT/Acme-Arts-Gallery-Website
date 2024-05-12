@@ -2,7 +2,7 @@
 
 <!--Team Name: MRS Tech
 	Team Member: Jack Dylan Rendle, Andrew Millett
-	Date: 09/05/2024-->
+	Date: 12/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -33,7 +33,7 @@
                     <input type="hidden" name="action" value="login">
                     <button id="login-button" class="btn input-button" type="submit">
                         <div class="button-text">LOGIN</div>
-                        <img class="icon-md" src="img/arrow.png">
+                        <img class="icon-md" src="img/arrow.png" alt="Login Button">
                     </button>
                 </div>
             </form>

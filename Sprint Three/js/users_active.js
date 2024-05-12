@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
 	Team Member: Andrew Millett, Ben Stafford
-	Date: 10/05/2024*/
+	Date: 12/05/2024*/
 
 $(document).ready(function () {
     // populate paintings
@@ -35,7 +35,7 @@ $(document).ready(function () {
                         `<tr>
                             <td>
                                 <a id="button-delete" class="btn button-icon-sm" data-id="${user.userId}">
-                                    <img class="icon-sm" src="img/delete.png">
+                                    <img class="icon-sm" src="img/delete.png" alt="Delete">
                                 </a>
                             </td>
                             <td>${user.userId}</td>

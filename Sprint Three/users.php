@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
-	Date: 07/05/2024-->
+	Team Member: Jack Dylan Rendle, Andrew Millett
+	Date: 12/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -20,7 +20,7 @@
             <div id="users-title" class="title">USERS</div>
             <div id="filter-container">
                 <a class="btn button-icon-md" href="users_inactive.php">
-                    <img class="icon-md" src="img/inactive.png">
+                    <img class="icon-md" src="img/inactive.png" alt="Inactive Users">
                 </a>
             </div>
         </div>

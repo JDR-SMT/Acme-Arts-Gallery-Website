@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Benjamin Stafford, Jack Dylan Rendle
-	Date: 07/05/2024-->
+	Team Member: Benjamin Stafford, Jack Dylan Rendle, Andrew Millett
+	Date: 12/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -42,7 +42,7 @@
         </div>
         <div id="admin-container">
             <a class="btn button-icon-md" href="admin.php">
-                <img class="icon-md" src="img/admin.png">
+                <img class="icon-md" src="img/admin.png" alt="Admin Login">
             </a>
         </div>
     </div>

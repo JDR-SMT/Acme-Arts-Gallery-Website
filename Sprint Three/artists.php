@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
-	Date: 17/04/2024-->
+	Team Member: Jack Dylan Rendle, Andrew Millett
+	Date: 12/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -22,13 +22,13 @@
         <div id="gallery-container" class="title-container">
             <div id="add-container">
                 <a class="btn button-icon-md" href="artist_add.php">
-                    <img class="icon-md" src="img/add.png">
+                    <img class="icon-md" src="img/add.png" alt="Add Artist">
                 </a>
             </div>
             <div class="title">ARTISTS</div>
             <div id="filter-container">
                 <a class="btn button-icon-md" href="#offcanvas-filter" data-bs-toggle="offcanvas">
-                    <img class="icon-md" src="img/filter.png">
+                    <img class="icon-md" src="img/filter.png" alt="Filter">
                 </a>
             </div>
         </div>

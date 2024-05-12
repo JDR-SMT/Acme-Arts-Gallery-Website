@@ -1,8 +1,8 @@
 <html lang="en">
 
 <!--Team Name: MRS Tech
-	Team Member: Jack Dylan Rendle
-	Date: 07/05/2024-->
+	Team Member: Jack Dylan Rendle, Andrew Millett
+	Date: 12/05/2024-->
 
 <head>
     <meta charset="utf-8">
@@ -41,11 +41,11 @@
                     <input type="hidden" name="action" value="subscribe">
                     <button id="subscribe-button" class="btn input-button" type="submit">
                         <div class="button-text">SUBSCRIBE</div>
-                        <img class="icon-md" src="img/arrow.png">
+                        <img class="icon-md" src="img/arrow.png" alt="Subscribe Button">
                     </button>
                     <button id="remove-button" class="btn input-button" type="submit">
                         <div class="button-text">REMOVE ACCOUNT</div>
-                        <img class="icon-md" src="img/arrow.png">
+                        <img class="icon-md" src="img/arrow.png" alt="Account Remove Button">
                     </button>
                 </div>
             </form>

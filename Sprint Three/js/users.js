@@ -42,6 +42,15 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response);
                 
+				/* If we were to send an actual email, this might be what the code would look like:
+				
+				$.ajax({
+                    url: "send_email_to_admin.php",
+                    type: "POST",
+                    data: { admin email },
+                    success: function () {
+                        alert("Account removal request sent.");
+                        window.location.href = "index.php";*/
                 if (response) {
                     alert("Account removal request sent.");
                     window.location.href = "index.php";

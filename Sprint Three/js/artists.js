@@ -1,6 +1,6 @@
 /*Team Name: MRS Tech
 	Team Member: Jack Dylan Rendle, Ben Stafford, Andrew Millett
-	Date: 22/04/2024*/
+	Date: 12/05/2024*/
 
 $(document).ready(function () {
     var queryString = window.location.search;
@@ -41,16 +41,16 @@ $(document).ready(function () {
                             `<tr>
                             <td id="three-button-container">
                                 <a class="btn button-icon-sm" href="artist_details.php?id=${artist.artistId}">
-                                    <img class="icon-sm" src="img/details.png">
+                                    <img class="icon-sm" src="img/details.png" alt="Details">
                                 </a>
                                 <a class="btn button-icon-sm" href="artist_update.php?id=${artist.artistId}">
-                                    <img class="icon-sm" src="img/update.png">
+                                    <img class="icon-sm" src="img/update.png" alt="Update">
                                 </a>
                                 <a id="button-delete" class="btn button-icon-sm" data-id="${artist.artistId}">
-                                    <img class="icon-sm" src="img/delete.png">
+                                    <img class="icon-sm" src="img/delete.png" alt="Delete">
                                 </a>
                             </td>
-                            <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" /></td>
+                            <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" alt="Artist" /></td>
                             <td>${artist.artistName}</td>
                             <td>${artist.artistLifespan}</td>
                             <td>${artist.nationalityName}</td>
@@ -95,16 +95,16 @@ $(document).ready(function () {
                             `<tr>
                                 <td id="three-button-container">
                                     <a class="btn button-icon-sm" href="artist_details.php?id=${artist.artistId}">
-                                        <img class="icon-sm" src="img/details.png">
+                                        <img class="icon-sm" src="img/details.png" alt="Details">
                                     </a>
                                     <a class="btn button-icon-sm" href="artist_update.php?id=${artist.artistId}">
-                                        <img class="icon-sm" src="img/update.png">
+                                        <img class="icon-sm" src="img/update.png" alt="Update">
                                     </a>
                                     <a id="button-delete" class="btn button-icon-sm" data-id="${artist.artistId}">
-                                        <img class="icon-sm" src="img/delete.png">
+                                        <img class="icon-sm" src="img/delete.png" alt="Delete">
                                     </a>
                                 </td>
-                                <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" /></td>
+                                <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" alt="Artist" /></td>
                                 <td>${artist.artistName}</td>
                                 <td>${artist.artistLifespan}</td>
                                 <td>${artist.nationalityName}</td>
@@ -150,16 +150,16 @@ $(document).ready(function () {
                             `<tr>
                                 <td id="three-button-container">
                                     <a class="btn button-icon-sm" href="artist_details.php?id=${artist.artistId}">
-                                        <img class="icon-sm" src="img/details.png">
+                                        <img class="icon-sm" src="img/details.png" alt="Details">
                                     </a>
                                     <a class="btn button-icon-sm" href="artist_update.php?id=${artist.artistId}">
-                                        <img class="icon-sm" src="img/update.png">
+                                        <img class="icon-sm" src="img/update.png" alt="Update">
                                     </a>
                                     <a id="button-delete" class="btn button-icon-sm" data-id="${artist.artistId}">
-                                        <img class="icon-sm" src="img/delete.png">
+                                        <img class="icon-sm" src="img/delete.png" alt="Delete">
                                     </a>
                                 </td>
-                                <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" /></td>
+                                <td><img src="data:image/png;base64, ${artist.artistThumbnail}" style="width:100px" alt="Artist" /></td>
                                 <td>${artist.artistName}</td>
                                 <td>${artist.artistLifespan}</td>
                                 <td>${artist.nationalityName}</td>
